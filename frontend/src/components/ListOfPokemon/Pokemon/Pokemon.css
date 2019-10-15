@@ -1,0 +1,13 @@
+.pokemonItemContainer {
+  height: 200px;
+  width: 200px;
+  border: 1px solid grey;
+}
+
+.pokemonSprite {
+  width: 70%;
+}
+
+.pokemonName {
+  color: white;
+}
