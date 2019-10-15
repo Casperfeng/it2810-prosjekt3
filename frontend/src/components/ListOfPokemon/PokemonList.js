@@ -8,7 +8,7 @@ export default function PokemonList() {
     {
       name: 'Charizard',
       types: ['fire', 'flying'],
-      id: 1,
+      id: 4,
       pokemonId: 6
     },
     {
