@@ -6,8 +6,9 @@ export default function Pokemon(props) {
     return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
   }
 
+  // finner ut hvilken farge som skal tilegnes bakgrunnen
+  // @TODO: legg inn resterende typer
   function generateBgColor(types) {
-    let result = '';
     const colorFromType = {
       fire: '#F08030',
       grass: '#A3DA89',
@@ -16,14 +17,35 @@ export default function Pokemon(props) {
       bug: '#A8B820',
       ground: '#DBB54C',
       rock: '#A48F31',
-      normal: '#9C9C63'
+      normal: '#9C9C63',
+      poison: '#C874C8',
+      dragon: '#5E1EF6',
+      ice: '#7ECECE',
+      fighting: '#AE2A24',
+      electric: '#F6C910'
     };
-    console.log(types);
-    return result;
+
+    return types.length == 2
+      ? colorFromType[types[0]] + ' ' + colorFromType[types[1]]
+      : colorFromType[types[0]];
   }
 
+  let bgColoring = generateBgColor(props.types);
+  console.log(bgColoring);
+
   return (
-    <div className={`pokemonItemContainer ${generateBgColor(props.types)}`}>
+    <div
+      className='pokemonItemContainer'
+      style={
+        bgColoring.includes(' ')
+          ? {
+              background: `linear-gradient(90deg, ${
+                bgColoring.split(' ')[0]
+              } 50%, ${bgColoring.split(' ')[1]} 50%)`
+            }
+          : { background: bgColoring }
+      }
+    >
       <img className='pokemonSprite' src={parseUrl(props.pokemonId)} />
       <div className='pokemonName'>{props.name}</div>
     </div>

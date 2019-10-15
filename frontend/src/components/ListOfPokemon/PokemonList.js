@@ -4,13 +4,19 @@ import Pokemon from './Pokemon/Pokemon';
 
 export default function PokemonList() {
   const [pokemon, setPokemon] = useState([
+    { name: 'Venusaur', types: ['grass', 'poison'], id: 2, pokemonId: 3 },
     {
-      name: 'Charmander',
-      types: ['fire'],
+      name: 'Charizard',
+      types: ['fire', 'flying'],
       id: 1,
-      pokemonId: 4
+      pokemonId: 6
     },
-    { name: 'Pikachu', types: ['electric'], id: 2, pokemonId: 25 }
+    {
+      name: 'Ekans',
+      types: ['poison'],
+      id: 1,
+      pokemonId: 23
+    }
   ]);
 
   function generatePokemon() {
