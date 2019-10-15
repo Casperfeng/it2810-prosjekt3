@@ -1,0 +1,4 @@
+.pokemonListContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
