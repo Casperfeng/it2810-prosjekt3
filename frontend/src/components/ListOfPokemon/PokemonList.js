@@ -16,8 +16,16 @@ export default function PokemonList() {
       types: ['poison'],
       id: 1,
       pokemonId: 23
-    }
+    },
+    { name: 'Mewtwo', types: ['psychic'], id: 6, pokemonId: 150 },
+    { name: 'Blastoise', types: ['water'], id: 8, pokemonId: 9 }
   ]);
+
+  function sortPokemon() {
+    pokemon.sort((pokemon1, pokemon2) =>
+      pokemon1.pokemonId > pokemon2.pokemonId ? 1 : -1
+    );
+  }
 
   function generatePokemon() {
     const pokemonItem = pokemon.map(pokemon => (
@@ -30,5 +38,7 @@ export default function PokemonList() {
     ));
     return pokemonItem;
   }
+
+  sortPokemon();
   return <div className='pokemonListContainer'>{generatePokemon()}</div>;
 }
