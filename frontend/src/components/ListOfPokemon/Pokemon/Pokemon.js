@@ -22,7 +22,10 @@ export default function Pokemon(props) {
       dragon: '#5E1EF6',
       ice: '#7ECECE',
       fighting: '#AE2A24',
-      electric: '#F6C910'
+      electric: '#F6C910',
+      psychic: '#F73670',
+      fairy: '#E77890',
+      ghost: '#644D88'
     };
 
     return types.length == 2
@@ -30,20 +33,38 @@ export default function Pokemon(props) {
       : colorFromType[types[0]];
   }
 
-  let bgColoring = generateBgColor(props.types);
-  console.log(bgColoring);
+  function hasTwoTypes(value) {
+    return value.includes(' ');
+  }
+
+  function twoTypeColor(value) {
+    if (!hasTwoTypes(value)) {
+      throw Error('Something went wrong');
+    }
+    return {
+      background: `linear-gradient(90deg, ${value.split(' ')[0]} 50%, ${
+        value.split(' ')[1]
+      } 50%)`
+    };
+  }
+
+  function oneTypeColor(value) {
+    if (hasTwoTypes(value)) {
+      throw Error('Something went wrong');
+    }
+
+    return { background: value };
+  }
+
+  const bgColoring = generateBgColor(props.types);
 
   return (
     <div
       className='pokemonItemContainer'
       style={
-        bgColoring.includes(' ')
-          ? {
-              background: `linear-gradient(90deg, ${
-                bgColoring.split(' ')[0]
-              } 50%, ${bgColoring.split(' ')[1]} 50%)`
-            }
-          : { background: bgColoring }
+        hasTwoTypes(bgColoring)
+          ? twoTypeColor(bgColoring)
+          : oneTypeColor(bgColoring)
       }
     >
       <img className='pokemonSprite' src={parseUrl(props.pokemonId)} />
