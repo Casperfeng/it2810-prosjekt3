@@ -1,30 +1,29 @@
-const bodyParser = require('body-parser');
-const cors = require('cors');
-const mysql = require('mysql');
-
-const dontenv = require('dotenv');
-dontenv.config();
-
 const express = require('express');
-const path = require('path');
-
-
 const app = express();
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+require('dotenv/config');
 
+app.use(bodyParser.json());
+
+// Import routes
+const pokemonRoute = require('./routes/pokemon');
+
+app.use('/pokemon', pokemonRoute);
+
+
+// Connect to DB
+mongoose.connect(
+    process.env.DB_CONNECTION, 
+    { useUnifiedTopology: true, useNewUrlParser: true }
+);
+
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  console.log("Connected to db");
+});
+
+// Listen to server
 const port = process.env.PORT || 5000;
-  
-app.use(bodyParser.json({ limit: '10mb' }));
-app.use(cors());
-
-//henter data fra .env fil, må konfigureres på egen maskin
-const pool = mysql.createPool({
-    connectionLimit: process.env.PORT,
-    host: process.env.HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DATABASE,
-  });
-   
 app.listen(port, () => console.log(`Listening on port ${port}`));
-  
-module.exports = app;
