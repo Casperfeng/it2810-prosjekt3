@@ -6,8 +6,6 @@ export default function Pokemon(props) {
     return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
   }
 
-  // finner ut hvilken farge som skal tilegnes bakgrunnen
-  // @TODO: legg inn resterende typer
   function generateBgColor(types) {
     const colorFromType = {
       fire: '#F08030',
@@ -28,7 +26,7 @@ export default function Pokemon(props) {
       ghost: '#644D88'
     };
 
-    return types.length == 2
+    return types.length === 2
       ? colorFromType[types[0]] + ' ' + colorFromType[types[1]]
       : colorFromType[types[0]];
   }
@@ -67,7 +65,11 @@ export default function Pokemon(props) {
           : oneTypeColor(bgColoring)
       }
     >
-      <img className='pokemonSprite' src={parseUrl(props.pokemonId)} />
+      <img
+        className='pokemonSprite'
+        src={parseUrl(props.pokemonId)}
+        alt={props.name}
+      />
       <div className='pokemonName'>{props.name}</div>
     </div>
   );
