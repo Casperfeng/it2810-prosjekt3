@@ -1,0 +1,18 @@
+.filterButton {
+  border: none;
+  outline: none;
+  margin: 2px;
+  width: 70px;
+  height: 40px;
+  cursor: pointer;
+
+  border-radius: 3px;
+  color: white;
+  font-weight: 600;
+}
+
+.activeButton {
+  border: 4px solid blue;
+  width: 77px;
+  height: 44px;
+}

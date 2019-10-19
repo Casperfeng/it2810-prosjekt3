@@ -6,6 +6,7 @@ export default function Pokemon(props) {
     return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
   }
 
+  // finner ut hvilken farge som skal tilegnes bakgrunnen
   function generateBgColor(types) {
     const colorFromType = {
       fire: '#F08030',
@@ -23,7 +24,8 @@ export default function Pokemon(props) {
       electric: '#F6C910',
       psychic: '#F73670',
       fairy: '#E77890',
-      ghost: '#644D88'
+      ghost: '#644D88',
+      steel: 'grey'
     };
 
     return types.length === 2
