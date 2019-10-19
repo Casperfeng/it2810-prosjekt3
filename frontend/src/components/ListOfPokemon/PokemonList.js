@@ -35,7 +35,6 @@ export default function PokemonList() {
       sortPokemon();
     }
   }
-  console.log(pokemon);
 
   return (
     <div className='pokemonListContainer'>{pokemon && generatePokemon()}</div>

@@ -6,6 +6,9 @@ import './App.css';
 function App() {
   return (
     <div className='App'>
+      <div className='title'>
+        <h1>Pokedex</h1>
+      </div>
       <div className='searchbarContainer'>
         <Searchbar />
       </div>

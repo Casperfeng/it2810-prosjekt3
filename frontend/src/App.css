@@ -7,5 +7,7 @@
 }
 
 .pokemonListContainer {
+  width: 80%;
   margin: 0 auto;
+  place-content: center;
 }

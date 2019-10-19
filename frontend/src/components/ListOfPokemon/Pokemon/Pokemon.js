@@ -25,8 +25,7 @@ export default function Pokemon(props) {
       psychic: '#F73670',
       fairy: '#E77890',
       ghost: '#644D88',
-      steel: '#F0F0F0',
-      dark: '#705848'
+      steel: 'grey'
     };
 
     return types.length === 2
