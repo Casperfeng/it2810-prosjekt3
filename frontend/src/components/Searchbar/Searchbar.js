@@ -26,6 +26,7 @@ export default function Searchbar() {
         <FilterButton text='Dragon' typeColor={'#5E1EF6'} />
         <FilterButton text='Water' typeColor={'#6790F0'} />
         <FilterButton text='Steel' typeColor={'grey'} />
+        <FilterButton text='Ghost' typeColor={'#644D88'} />
       </div>
     </div>
   );

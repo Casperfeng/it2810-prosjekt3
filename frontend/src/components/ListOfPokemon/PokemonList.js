@@ -37,6 +37,8 @@ export default function PokemonList() {
   }
 
   return (
-    <div className='pokemonListContainer'>{pokemon && generatePokemon()}</div>
+    <div className='pokemonListContainer'>
+      {pokemon ? generatePokemon() : <h3>No pokemon found</h3>}
+    </div>
   );
 }
