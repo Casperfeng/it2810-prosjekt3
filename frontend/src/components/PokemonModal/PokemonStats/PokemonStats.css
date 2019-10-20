@@ -1,0 +1,21 @@
+.pokemonStatsContainer {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 100%;
+  padding: 30px;
+}
+
+.pokemonStat {
+  display: flex;
+  flex-direction: column;
+}
+.progressBar {
+  margin-top: -15px;
+  margin-bottom: 15px;
+  height: 25px !important;
+}
+.progressBar .progress-bar {
+  background: #2ecc71 !important;
+  font-size: 20px;
+}
