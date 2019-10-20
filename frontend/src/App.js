@@ -2,6 +2,7 @@ import React from 'react';
 import PokemonList from './components/ListOfPokemon/PokemonList';
 import Searchbar from './components/Searchbar/Searchbar';
 import './App.css';
+import PokemonModal from './components/PokemonModal/PokemonModal';
 
 function App() {
   return (
@@ -15,6 +16,15 @@ function App() {
       <div className='pokemonListContainer'>
         <PokemonList />
       </div>
+      <PokemonModal
+        pokemon={{
+          id: 113,
+          name: 'chansey',
+          types: ['normal'],
+          stats: [250, 5, 5, 35, 105, 50],
+          views: 10
+        }}
+      />
     </div>
   );
 }
