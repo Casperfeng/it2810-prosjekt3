@@ -22,21 +22,6 @@ router.get("/:pokemonId", async (req, res) => {
   }
 });
 
-// Get multiple pokemon by name (as long as it contains it in its name)
-router.get("/search/:pokemonName", async (req, res) => {
-  try {
-    const pokemon = await Pokemon.find({
-      name: {
-        $regex: req.params.pokemonName.toLocaleLowerCase(),
-        $options: "i"
-      }
-    });
-    res.json(pokemon);
-  } catch (err) {
-    res.json({ message: err });
-  }
-});
-
 // Increment views on a pokemon
 router.put("/:pokemonId", async (req, res) => {
   try {
@@ -50,31 +35,58 @@ router.put("/:pokemonId", async (req, res) => {
   }
 });
 
-// Get upto 25 pokemon, skipping given amount of pokemon and filtered by types if given
+// Get upto 25 pokemon
+// Optionals:
+// skip: skip a given amount of pokemon
+// name: get pokemon with name containing name
+// sort: sort by given field in either ascending or descending order
+// type{something}: get pokemon with given type
 router.get("/", async (req, res) => {
   try {
-    const filter = [];
+    const types = [];
     const skipAmount = req.query.skip ? parseInt(req.query.skip) : 0;
+    const name = req.query.name ? req.query.name.toLocaleLowerCase() : "";
+    const sort = {};
+    const filter = {};
 
     for (const key of Object.keys(req.query)) {
       if (key.startsWith("type")) {
-        filter.push(req.query[key]);
+        types.push(req.query[key]);
+      } else if (key === "sort") {
+        const value = req.query[key];
+        const isDESC = value.endsWith("DESC");
+        if (value.startsWith("name")) {
+          sort.name = isDESC ? -1 : 1;
+        } else if (value.startsWith("id")) {
+          sort.id = isDESC ? -1 : 1;
+        } else if (value.startsWith("views")) {
+          sort.views = isDESC ? -1 : 1;
+        }
       }
     }
 
-    if (filter.length == 0) {
-      const pokemon = await Pokemon.find()
-        .skip(skipAmount)
-        .limit(25);
-      res.json(pokemon);
+    if (types.length !== 0) {
+      filter.$and = [
+        { types: { $in: types } },
+        {
+          name: {
+            $regex: name,
+            $options: "i"
+          }
+        }
+      ];
     } else {
-      const pokemon = await Pokemon.find({
-        types: { $in: filter }
-      })
-        .skip(skipAmount)
-        .limit(25);
-      res.json(pokemon);
+      filter.name = {
+        $regex: name,
+        $options: "i"
+      };
     }
+
+    const pokemon = await Pokemon.find(filter)
+      .skip(skipAmount)
+      .limit(25)
+      .sort(sort);
+    res.json(pokemon);
   } catch (err) {
     res.json({ message: err });
   }
