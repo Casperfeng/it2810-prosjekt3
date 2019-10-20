@@ -18,7 +18,7 @@ function App() {
       <div className='pokemonListContainer'>
         {showWordCloud ? <PokemonWordCloud /> : <PokemonList />}
       </div>
-      <PokemonModal
+      {/*<PokemonModal
         pokemon={{
           id: 113,
           name: 'chansey',
@@ -26,7 +26,7 @@ function App() {
           stats: [250, 5, 5, 35, 105, 50],
           views: 10
         }}
-      />
+      />*/}
     </div>
   );
 }

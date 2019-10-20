@@ -2,6 +2,11 @@
   margin-bottom: 20px;
 }
 
+.searchbar {
+  display: flex;
+  justify-content: center;
+}
+
 .searchbar input {
   border: none;
   border-radius: 30px;

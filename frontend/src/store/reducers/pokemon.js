@@ -1,3 +1,5 @@
+import * as actionTypes from '../actions/actions';
+
 export const pokemonReducer = (state = [], action) => {
   switch (action.type) {
     case actionTypes.FETCH_POKEMON:
