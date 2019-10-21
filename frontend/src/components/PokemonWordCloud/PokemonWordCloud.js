@@ -29,7 +29,7 @@ export default function PokemonList() {
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get('http://localhost:5000/pokemon/all');
-      let newDict = {};
+      const newDict = {};
       for (let x = 0; x < response.data.length; x++)
         newDict[response.data[x].name] =
           colorFromType[response.data[x].types[0]];
@@ -46,6 +46,12 @@ export default function PokemonList() {
     fetchData();
   }, []);
 
+  function onWordClick() {
+    return function(word) {
+      console.log(word);
+    };
+  }
+
   return (
     <div style={{ backgroundColor: '#EEEEEE' }}>
       <ReactWordcloud
@@ -58,7 +64,8 @@ export default function PokemonList() {
           },
           getWordTooltip: ({ text, value }) => {
             return text + ' (views: ' + value + ')';
-          }
+          },
+          onWordClick: onWordClick()
         }}
         maxWords={151}
         size={[500, 500]}

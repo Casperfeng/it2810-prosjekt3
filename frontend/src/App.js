@@ -6,7 +6,7 @@ import './App.css';
 import PokemonModal from './components/PokemonModal/PokemonModal';
 
 function App() {
-  let showWordCloud = true;
+  const showWordCloud = true;
   return (
     <div className='App'>
       <div className='title'>
