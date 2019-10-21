@@ -1,12 +1,14 @@
 import { combineReducers } from 'redux';
 import pokemonDuck from '../ducks/pokemonDuck';
 import typesDuck from '../ducks/typesDuck';
+import searchReducer from '../ducks/searchDuck';
 
 // Using the ducks module pattern for Redux
 
 const rootReducer = combineReducers({
   pokemon: pokemonDuck,
-  types: typesDuck
+  types: typesDuck,
+  search: searchReducer
 });
 
 export default rootReducer;

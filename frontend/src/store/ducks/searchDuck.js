@@ -1,20 +1,21 @@
 // Actions
-const SUBMIT_SEARCH = 'SUBMIT_SEARCH';
+const UPDATE_SEARCH = 'UPDATE_SEARCH';
 
 // Reducer
 export default function searchReducer(state = '', action) {
   switch (action.type) {
-    case SUBMIT_SEARCH:
-      return action.payload;
+    case UPDATE_SEARCH:
+      let newState = action.payload;
+      return newState;
     default:
       return state;
   }
 }
 
 // Action creator
-export function makeSearch(search = '') {
+export function updateSearch(search = '') {
   return {
-    type: SUBMIT_SEARCH,
+    type: UPDATE_SEARCH,
     payload: search
   };
 }

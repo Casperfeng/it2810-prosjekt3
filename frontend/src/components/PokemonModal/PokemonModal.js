@@ -43,7 +43,11 @@ function PokemonModal(props) {
       <div className='pokemon'>
         <div className='pokemonHeader'>
           <div className='viewsContainer'>
-            <img className='viewsEye' src='assets/img/views_eye.png'></img>
+            <img
+              className='viewsEye'
+              src='assets/img/views_eye.png'
+              alt='eye icon'
+            ></img>
             <p className='viewsText'>{props.pokemon.views}</p>
           </div>
           <p className='pokemonText'>
@@ -56,6 +60,7 @@ function PokemonModal(props) {
             onClick={() => {
               setShow(!show);
             }}
+            alt='close modal'
           ></img>
         </div>
         <img

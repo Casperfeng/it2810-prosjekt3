@@ -11,7 +11,9 @@ export default function pokemonReducer(state = [], action) {
     case FETCH_POKEMON_SUCCESS:
       return [...state, ...action.payload];
     case FETCH_POKEMON_FAILURE:
-      throw Error('Pokemon loading error');
+      throw Error(
+        'Pokemon loading error, check if backend is connected properly'
+      );
     case CLEAR_POKEMON:
       return [];
     default:
@@ -34,7 +36,7 @@ export function fetchPokemonFailure() {
 
 // Action creator
 export function fetchPokemon(skip = 0, types = [], search = '') {
-  const searchString = search ? `&${search}` : '';
+  const searchString = search ? `&name=${search}` : '';
   let typesString = '';
   for (let i = 0; i < types.length; i++) {
     typesString += `&type${i === 0 ? '' : i}=${types[i]}`;

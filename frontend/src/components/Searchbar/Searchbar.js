@@ -1,16 +1,20 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { updateSearch } from '../../store/ducks/searchDuck';
 import Filterbutton from './Filterbutton/Filterbutton';
-import Searchbutton from './Searchbutton/Searchbutton';
 import './Searchbar.css';
 
 export default function Searchbar() {
+  const dispatch = useDispatch();
   return (
     <div className='searchbarContentContainer'>
       <div className='searchbar'>
         <div>
-          <input placeholder='Search pokemon names here...' />
+          <input
+            placeholder='Search pokemon names here...'
+            onChange={e => dispatch(updateSearch(e.target.value))}
+          />
         </div>
-        <Searchbutton />
       </div>
       <h3>Filter by type:</h3>
       <div className='filterbuttonContainer'>
