@@ -51,7 +51,7 @@ function PokemonList() {
         )}
       </div>
       <div className='loadbuttonContainer'>
-        {pokemon.length % 25 === 0 && <Loadbutton />}
+        {pokemon.length % 25 === 0 && pokemon.length !== 0 && <Loadbutton />}
       </div>
     </div>
   );
