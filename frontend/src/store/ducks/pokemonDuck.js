@@ -1,16 +1,19 @@
 import axios from 'axios';
 
+// Actions
 const FETCH_POKEMON_SUCCESS = 'FETCH_POKEMON_SUCCESS';
 const FETCH_POKEMON_FAILURE = 'FETCH_POKEMON_FAILURE';
-const LOAD_POKEMON = 'LOAD_POKEMON';
+const CLEAR_POKEMON = 'CLEAR_POKEMON';
+
 // Reducer
 export default function pokemonReducer(state = [], action) {
-  console.log(action.type);
   switch (action.type) {
     case FETCH_POKEMON_SUCCESS:
       return [...state, ...action.payload];
     case FETCH_POKEMON_FAILURE:
       throw Error('Pokemon loading error');
+    case CLEAR_POKEMON:
+      return [];
     default:
       return state;
   }
@@ -30,10 +33,25 @@ export function fetchPokemonFailure() {
 }
 
 // Action creator
-export function fetchPokemon() {
+export function fetchPokemon(skip = 0, types = [], search = '') {
+  const searchString = search ? `&${search}` : '';
+  let typesString = '';
+  for (let i = 0; i < types.length; i++) {
+    typesString += `&type${i === 0 ? '' : i}=${types[i]}`;
+  }
   return dispatch =>
     axios
-      .get(`http://localhost:5000/pokemon/`)
+      .get(
+        `http://localhost:5000/pokemon/?skip=${skip +
+          typesString +
+          searchString}`
+      )
       .then(response => dispatch(fetchPokemonSuccess(response)))
       .catch(err => dispatch(fetchPokemonFailure(err)));
+}
+
+export function clearPokemon() {
+  return {
+    type: 'CLEAR_POKEMON'
+  };
 }

@@ -1,18 +1,21 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchPokemon } from '../../store/ducks/pokemonDuck';
-import axios from 'axios';
+import { fetchPokemon, clearPokemon } from '../../store/ducks/pokemonDuck';
 import Pokemon from './Pokemon/Pokemon';
 import './PokemonList.css';
 
 function PokemonList() {
   const dispatch = useDispatch();
   const pokemon = useSelector(state => state.pokemon);
-  console.log(pokemon);
+  const types = useSelector(state => state.types);
+  const search = useSelector(state => state.search);
 
   useEffect(() => {
-    dispatch(fetchPokemon());
-  }, []);
+    if (pokemon) {
+      dispatch(clearPokemon());
+    }
+    dispatch(fetchPokemon(0, types, search));
+  }, [types, search]);
 
   function sortPokemon() {
     pokemon.sort((pokemon1, pokemon2) => (pokemon1.id > pokemon2.id ? 1 : -1));
