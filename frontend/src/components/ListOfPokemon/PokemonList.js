@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchPokemon, clearPokemon } from '../../store/ducks/pokemonDuck';
 import Pokemon from './Pokemon/Pokemon';
+import Loadbutton from './Loadbutton/Loadbutton';
 import './PokemonList.css';
 
 function PokemonList() {
@@ -41,8 +42,17 @@ function PokemonList() {
   }
 
   return (
-    <div className='pokemonListContainer'>
-      {pokemon ? generatePokemon() : <h3>No pokemon found</h3>}
+    <div>
+      <div className='pokemonListContainer'>
+        {pokemon.length !== 0 ? (
+          generatePokemon()
+        ) : (
+          <h3>No pokemon found matching search criterias</h3>
+        )}
+      </div>
+      <div className='loadbuttonContainer'>
+        {pokemon.length % 25 === 0 && <Loadbutton />}
+      </div>
     </div>
   );
 }
