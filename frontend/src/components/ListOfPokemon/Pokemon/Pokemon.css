@@ -7,8 +7,9 @@
 }
 
 .pokemonItemContainer:hover {
-  height: 155px;
-  width: 155px;
+  height: 154px;
+  width: 154px;
+  margin: 2px;
   cursor: pointer;
 }
 
