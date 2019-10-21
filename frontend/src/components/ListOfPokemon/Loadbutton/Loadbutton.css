@@ -1,0 +1,11 @@
+.loadbutton {
+  height: 80px;
+  width: 120px;
+  border-radius: 10px;
+}
+
+.loadbutton:hover {
+  height: 88px;
+  width: 132px;
+  border: 1px solid grey;
+}
