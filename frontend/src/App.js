@@ -1,10 +1,12 @@
 import React from 'react';
 import PokemonList from './components/ListOfPokemon/PokemonList';
+import PokemonWordCloud from './components/PokemonWordCloud/PokemonWordCloud';
 import Searchbar from './components/Searchbar/Searchbar';
 import './App.css';
 import PokemonModal from './components/PokemonModal/PokemonModal';
 
 function App() {
+  let showWordCloud = true;
   return (
     <div className='App'>
       <div className='title'>
@@ -14,7 +16,7 @@ function App() {
         <Searchbar />
       </div>
       <div className='pokemonListContainer'>
-        <PokemonList />
+        {showWordCloud ? <PokemonWordCloud /> : <PokemonList />}
       </div>
       <PokemonModal
         pokemon={{
