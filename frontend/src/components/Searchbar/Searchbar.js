@@ -1,31 +1,40 @@
 import React from 'react';
-import FilterButton from './Filterbutton/Filterbutton';
+import { useDispatch } from 'react-redux';
+import { updateSearch } from '../../store/ducks/searchDuck';
+import Filterbutton from './Filterbutton/Filterbutton';
 import './Searchbar.css';
 
 export default function Searchbar() {
+  const dispatch = useDispatch();
   return (
     <div className='searchbarContentContainer'>
       <div className='searchbar'>
-        <input placeholder='Search pokemon names here...' />
+        <div>
+          <input
+            placeholder='Search pokemon names here...'
+            onChange={e => dispatch(updateSearch(e.target.value))}
+          />
+        </div>
       </div>
       <h3>Filter by type:</h3>
       <div className='filterbuttonContainer'>
-        <FilterButton text='Poison' typeColor={'#C874C8'} />
-        <FilterButton text='Grass' typeColor={'#A3DA89'} />
-        <FilterButton text='Fire' typeColor={'#F08030'} />
-        <FilterButton text='Psychic' typeColor={'#F73670'} />
-        <FilterButton text='Normal' typeColor={'#9C9C63'} />
-        <FilterButton text='Fighting' typeColor={'#AE2A24'} />
-        <FilterButton text='Electric' typeColor={'#F6C910'} />
-        <FilterButton text='Flying' typeColor={'#A990F0'} />
-        <FilterButton text='Bug' typeColor={'#A8B820'} />
-        <FilterButton text='Ground' typeColor={'#DBB54C'} />
-        <FilterButton text='Ice' typeColor={'#7ECECE'} />
-        <FilterButton text='Fairy' typeColor={'#E77890'} />
-        <FilterButton text='Rock' typeColor={'#A48F31'} />
-        <FilterButton text='Dragon' typeColor={'#5E1EF6'} />
-        <FilterButton text='Water' typeColor={'#6790F0'} />
-        <FilterButton text='Steel' typeColor={'grey'} />
+        <Filterbutton text='poison' typeColor={'#C874C8'} />
+        <Filterbutton text='grass' typeColor={'#A3DA89'} />
+        <Filterbutton text='fire' typeColor={'#F08030'} />
+        <Filterbutton text='psychic' typeColor={'#F73670'} />
+        <Filterbutton text='normal' typeColor={'#9C9C63'} />
+        <Filterbutton text='fighting' typeColor={'#AE2A24'} />
+        <Filterbutton text='electric' typeColor={'#F6C910'} />
+        <Filterbutton text='flying' typeColor={'#A990F0'} />
+        <Filterbutton text='bug' typeColor={'#A8B820'} />
+        <Filterbutton text='ground' typeColor={'#DBB54C'} />
+        <Filterbutton text='ice' typeColor={'#7ECECE'} />
+        <Filterbutton text='fairy' typeColor={'#E77890'} />
+        <Filterbutton text='rock' typeColor={'#A48F31'} />
+        <Filterbutton text='dragon' typeColor={'#5E1EF6'} />
+        <Filterbutton text='water' typeColor={'#6790F0'} />
+        <Filterbutton text='steel' typeColor={'grey'} />
+        <Filterbutton text='ghost' typeColor={'#644D88'} />
       </div>
     </div>
   );

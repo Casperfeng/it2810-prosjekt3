@@ -1,7 +1,12 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { openModal } from '../../../store/ducks/modalDuck';
 import './Pokemon.css';
 
 export default function Pokemon(props) {
+  const dispatch = useDispatch();
+  const modalInfo = useSelector(state => state.modalInfo);
+  console.log(modalInfo);
   function parseUrl(id) {
     return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
   }
@@ -59,20 +64,33 @@ export default function Pokemon(props) {
   const bgColoring = generateBgColor(props.types);
 
   return (
-    <div
-      className='pokemonItemContainer'
-      style={
-        hasTwoTypes(bgColoring)
-          ? twoTypeColor(bgColoring)
-          : oneTypeColor(bgColoring)
-      }
-    >
-      <img
-        className='pokemonSprite'
-        src={parseUrl(props.pokemonId)}
-        alt={props.name}
-      />
-      <div className='pokemonName'>{props.name}</div>
-    </div>
+    <>
+      <div
+        onClick={() =>
+          dispatch(
+            openModal({
+              id: props.id,
+              stats: props.stats,
+              name: props.name,
+              types: props.types,
+              views: props.views
+            })
+          )
+        }
+        className='pokemonItemContainer'
+        style={
+          hasTwoTypes(bgColoring)
+            ? twoTypeColor(bgColoring)
+            : oneTypeColor(bgColoring)
+        }
+      >
+        <img
+          className='pokemonSprite'
+          src={parseUrl(props.id)}
+          alt={props.name}
+        />
+        <div className='pokemonName'>{props.name}</div>
+      </div>
+    </>
   );
 }

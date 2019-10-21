@@ -1,8 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { closeModal } from '../../store/ducks/modalDuck';
 import './PokemonModal.css';
 import PokemonStats from './PokemonStats/PokemonStats';
-function PokemonModal(props) {
-  const [show, setShow] = useState(true);
+
+function PokemonModal() {
+  const dispatch = useDispatch();
+  const modalInfo = useSelector(state => state.modalInfo);
   const colorFromType = {
     fire: '#F08030',
     grass: '#A3DA89',
@@ -22,14 +26,14 @@ function PokemonModal(props) {
     ghost: '#644D88'
   };
   function formatedID() {
-    const id = props.pokemon.id;
+    const id = modalInfo.id;
     let toReturn = '';
     if (id < 100) toReturn += '0';
     if (id < 10) toReturn += '0';
     return toReturn + id;
   }
   function type(index) {
-    const types = props.pokemon.types;
+    const types = modalInfo.types;
     if (index >= types.length) return '';
     return types[index];
   }
@@ -37,25 +41,27 @@ function PokemonModal(props) {
     <div
       className='pokemonModal'
       style={{
-        visibility: show ? 'visible' : 'collapse'
+        visibility: modalInfo.show ? 'visible' : 'collapse'
       }}
     >
       <div className='pokemon'>
         <div className='pokemonHeader'>
           <div className='viewsContainer'>
-            <img className='viewsEye' src='assets/img/views_eye.png'></img>
-            <p className='viewsText'>{props.pokemon.views}</p>
+            <img
+              className='viewsEye'
+              src='assets/img/views_eye.png'
+              alt='eye icon'
+            ></img>
+            <p className='viewsText'>{modalInfo.views}</p>
           </div>
           <p className='pokemonText'>
-            {props.pokemon.name}{' '}
-            <span className='grayText'>#{formatedID()}</span>
+            {modalInfo.name} <span className='grayText'>#{formatedID()}</span>
           </p>
           <img
             className='modalCloseButton'
             src='assets/img/close_button.png'
-            onClick={() => {
-              setShow(!show);
-            }}
+            onClick={() => dispatch(closeModal())}
+            alt='close modal'
           ></img>
         </div>
         <img
@@ -65,10 +71,10 @@ function PokemonModal(props) {
             formatedID() +
             '.png'
           }
-          alt={props.pokemon.name}
+          alt={modalInfo.name}
         />
         <div className='pokemonStats'>
-          <PokemonStats stats={props.pokemon.stats} />
+          <PokemonStats stats={modalInfo.stats} />
         </div>
         <div className='pokemonTypesContainer'>
           <p className='pokemonTypeTitle'>Type</p>
