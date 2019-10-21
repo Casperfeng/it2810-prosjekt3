@@ -5,7 +5,7 @@ const UPDATE_SEARCH = 'UPDATE_SEARCH';
 export default function searchReducer(state = '', action) {
   switch (action.type) {
     case UPDATE_SEARCH:
-      let newState = action.payload;
+      const newState = action.payload;
       return newState;
     default:
       return state;

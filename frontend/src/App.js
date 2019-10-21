@@ -1,12 +1,14 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import PokemonList from './components/ListOfPokemon/PokemonList';
 import PokemonWordCloud from './components/PokemonWordCloud/PokemonWordCloud';
+import PokemonModal from './components/PokemonModal/PokemonModal';
 import Searchbar from './components/Searchbar/Searchbar';
 import './App.css';
-import PokemonModal from './components/PokemonModal/PokemonModal';
 
 function App() {
   const showWordCloud = true;
+  const modalInfo = useSelector(state => state.modalInfo);
   return (
     <div className='App'>
       <div className='title'>
@@ -16,17 +18,9 @@ function App() {
         <Searchbar />
       </div>
       <div className='pokemonListContainer'>
-        {showWordCloud ? <PokemonWordCloud /> : <PokemonList />}
+        {!showWordCloud ? <PokemonWordCloud /> : <PokemonList />}
       </div>
-      {/*<PokemonModal
-        pokemon={{
-          id: 113,
-          name: 'chansey',
-          types: ['normal'],
-          stats: [250, 5, 5, 35, 105, 50],
-          views: 10
-        }}
-      />*/}
+      {modalInfo.show && <PokemonModal />}
     </div>
   );
 }

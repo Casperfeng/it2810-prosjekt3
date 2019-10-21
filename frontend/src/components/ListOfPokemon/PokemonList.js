@@ -27,7 +27,9 @@ function PokemonList() {
         key={pokemon._id}
         name={pokemon.name}
         types={pokemon.types}
-        pokemonId={pokemon.id}
+        id={pokemon.id}
+        stats={pokemon.stats}
+        views={pokemon.views}
       />
     ));
     return pokemonItem;
