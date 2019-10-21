@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchPokemon } from '../../store/ducks/pokemonDuck';
 import axios from 'axios';
 import Pokemon from './Pokemon/Pokemon';
 import './PokemonList.css';
 
-export default function PokemonList() {
-  const [pokemon, setPokemon] = useState();
+function PokemonList() {
+  const dispatch = useDispatch();
+  const pokemon = useSelector(state => state.pokemon);
+  console.log(pokemon);
 
   useEffect(() => {
-    const fetchData = async () => {
-      const response = await axios.get('http://localhost:5000/pokemon/');
-      setPokemon(response.data);
-    };
-    fetchData();
+    dispatch(fetchPokemon());
   }, []);
 
   function sortPokemon() {
@@ -29,7 +29,6 @@ export default function PokemonList() {
     ));
     return pokemonItem;
   }
-
   if (pokemon) {
     if (pokemon.length > 2) {
       sortPokemon();
@@ -42,3 +41,5 @@ export default function PokemonList() {
     </div>
   );
 }
+
+export default PokemonList;

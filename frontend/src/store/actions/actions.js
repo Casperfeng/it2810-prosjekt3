@@ -1,4 +1,0 @@
-export const FETCH_POKEMON = 'FETCH_POKEMON';
-export const FETCH_POKEMON_BY_SEARCH = 'FETCH_POKEMON_BY_SEARCH';
-export const MAKE_SEARCH = 'MAKE_SEARCH';
-export const FILTER_TYPE = 'FILTER_TYPE';

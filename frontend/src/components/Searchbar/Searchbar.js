@@ -14,23 +14,23 @@ export default function Searchbar() {
       </div>
       <h3>Filter by type:</h3>
       <div className='filterbuttonContainer'>
-        <Filterbutton text='Poison' typeColor={'#C874C8'} />
-        <Filterbutton text='Grass' typeColor={'#A3DA89'} />
-        <Filterbutton text='Fire' typeColor={'#F08030'} />
-        <Filterbutton text='Psychic' typeColor={'#F73670'} />
-        <Filterbutton text='Normal' typeColor={'#9C9C63'} />
-        <Filterbutton text='Fighting' typeColor={'#AE2A24'} />
-        <Filterbutton text='Electric' typeColor={'#F6C910'} />
-        <Filterbutton text='Flying' typeColor={'#A990F0'} />
-        <Filterbutton text='Bug' typeColor={'#A8B820'} />
-        <Filterbutton text='Ground' typeColor={'#DBB54C'} />
-        <Filterbutton text='Ice' typeColor={'#7ECECE'} />
-        <Filterbutton text='Fairy' typeColor={'#E77890'} />
-        <Filterbutton text='Rock' typeColor={'#A48F31'} />
-        <Filterbutton text='Dragon' typeColor={'#5E1EF6'} />
-        <Filterbutton text='Water' typeColor={'#6790F0'} />
-        <Filterbutton text='Steel' typeColor={'grey'} />
-        <Filterbutton text='Ghost' typeColor={'#644D88'} />
+        <Filterbutton text='poison' typeColor={'#C874C8'} />
+        <Filterbutton text='grass' typeColor={'#A3DA89'} />
+        <Filterbutton text='fire' typeColor={'#F08030'} />
+        <Filterbutton text='psychic' typeColor={'#F73670'} />
+        <Filterbutton text='normal' typeColor={'#9C9C63'} />
+        <Filterbutton text='fighting' typeColor={'#AE2A24'} />
+        <Filterbutton text='electric' typeColor={'#F6C910'} />
+        <Filterbutton text='flying' typeColor={'#A990F0'} />
+        <Filterbutton text='bug' typeColor={'#A8B820'} />
+        <Filterbutton text='ground' typeColor={'#DBB54C'} />
+        <Filterbutton text='ice' typeColor={'#7ECECE'} />
+        <Filterbutton text='fairy' typeColor={'#E77890'} />
+        <Filterbutton text='rock' typeColor={'#A48F31'} />
+        <Filterbutton text='dragon' typeColor={'#5E1EF6'} />
+        <Filterbutton text='water' typeColor={'#6790F0'} />
+        <Filterbutton text='steel' typeColor={'grey'} />
+        <Filterbutton text='ghost' typeColor={'#644D88'} />
       </div>
     </div>
   );
