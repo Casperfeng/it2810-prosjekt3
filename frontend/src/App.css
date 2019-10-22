@@ -1,14 +1,23 @@
 .App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   text-align: center;
   min-width: 500px;
+  position: relative;
 }
 
 .searchbarContainer {
   margin: 0 auto;
 }
 
-.pokemonListContainer {
-  width: 80%;
-  margin: 0 auto;
+.pokemonContentContainer {
+  width: 85%;
+  display: flex;
+  margin: auto;
   place-content: center;
+}
+
+.loadbuttonContainer {
+  margin: 20px auto;
 }

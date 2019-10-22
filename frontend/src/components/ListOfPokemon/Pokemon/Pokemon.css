@@ -19,6 +19,7 @@
 
 .pokemonName {
   color: white;
+  text-transform: capitalize;
   position: absolute;
   bottom: 0;
   width: 100%;

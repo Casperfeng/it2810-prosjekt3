@@ -1,9 +1,7 @@
 .pokemonListContainer {
+  margin: 30px;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   min-width: 200px;
-}
-
-.loadbuttonContainer {
-  margin: 20px auto;
 }
