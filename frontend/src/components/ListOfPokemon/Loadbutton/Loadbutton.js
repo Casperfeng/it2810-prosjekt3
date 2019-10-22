@@ -8,10 +8,21 @@ export default function Loadbutton() {
   const pokemon = useSelector(state => state.pokemon);
   const types = useSelector(state => state.types);
   const search = useSelector(state => state.search);
+  const sortInfo = useSelector(state => state.sortInfo);
   return (
     <button
       className='loadbutton'
-      onClick={() => dispatch(fetchPokemon(pokemon.length, types, search))}
+      onClick={() =>
+        dispatch(
+          fetchPokemon(
+            pokemon.length,
+            types,
+            search,
+            sortInfo.sortBy,
+            sortInfo.ascending
+          )
+        )
+      }
     >
       Load more...
     </button>

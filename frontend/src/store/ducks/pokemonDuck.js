@@ -59,14 +59,6 @@ export function fetchPokemon(
   for (let i = 0; i < types.length; i++) {
     typesString += `&type${i === 0 ? '' : i}=${types[i]}`;
   }
-
-  console.log(
-    `http://localhost:5000/pokemon/?skip=${skip +
-      typesString +
-      searchString +
-      sortString +
-      orderString}`
-  );
   return dispatch =>
     axios
       .get(
