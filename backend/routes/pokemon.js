@@ -46,6 +46,8 @@ router.get('/', async (req, res) => {
     const types = [];
     const skipAmount = req.query.skip ? parseInt(req.query.skip) : 0;
     const name = req.query.name ? req.query.name.toLocaleLowerCase() : '';
+    const limitAmount =
+      req.query.limit && req.query.limit === 'none' ? 151 : 25;
     const sort = {};
     const filter = {};
 
@@ -85,7 +87,7 @@ router.get('/', async (req, res) => {
     const pokemon = await Pokemon.find(filter)
       .sort(sort)
       .skip(skipAmount)
-      .limit(25);
+      .limit(limitAmount);
     res.json(pokemon);
   } catch (err) {
     res.json({ message: err });
