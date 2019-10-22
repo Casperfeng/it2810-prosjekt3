@@ -1,8 +1,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import PokemonList from './components/ListOfPokemon/PokemonList';
-import PokemonWordCloud from './components/PokemonWordCloud/PokemonWordCloud';
 import PokemonModal from './components/PokemonModal/PokemonModal';
+import PokemonWordCloud from './components/PokemonWordCloud/PokemonWordCloud';
 import Searchbar from './components/Searchbar/Searchbar';
 import './App.css';
 
@@ -18,7 +18,7 @@ function App() {
         <Searchbar />
       </div>
       <div className='pokemonListContainer'>
-        {!showWordCloud ? <PokemonWordCloud /> : <PokemonList />}
+        {showWordCloud ? <PokemonWordCloud /> : <PokemonList />}
       </div>
       {modalInfo.show && <PokemonModal />}
     </div>

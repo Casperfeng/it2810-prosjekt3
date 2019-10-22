@@ -1,4 +1,5 @@
 import React from 'react';
+import _ from 'lodash';
 import { useDispatch } from 'react-redux';
 import { updateSearch } from '../../store/ducks/searchDuck';
 import Filterbutton from './Filterbutton/Filterbutton';
@@ -6,13 +7,14 @@ import './Searchbar.css';
 
 export default function Searchbar() {
   const dispatch = useDispatch();
+  const delayedQuery = _.debounce(q => dispatch(updateSearch(q)), 500);
   return (
     <div className='searchbarContentContainer'>
       <div className='searchbar'>
         <div>
           <input
             placeholder='Search pokemon names here...'
-            onChange={e => dispatch(updateSearch(e.target.value))}
+            onChange={e => delayedQuery(e.target.value)}
           />
         </div>
       </div>

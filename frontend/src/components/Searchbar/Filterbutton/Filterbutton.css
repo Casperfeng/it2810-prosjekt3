@@ -5,9 +5,9 @@
   width: 70px;
   height: 40px;
   cursor: pointer;
-
   border-radius: 3px;
   color: white;
+  text-transform: capitalize;
   font-weight: 600;
   font-size: 14px;
 }

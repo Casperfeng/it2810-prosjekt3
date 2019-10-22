@@ -1,37 +1,37 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchAllPokemon } from '../../store/ducks/pokemonDuck';
 import ReactWordcloud from 'react-wordcloud';
 import { colorFromType } from '../../common/constants';
 
 export default function PokemonList() {
-  const [words, setWords] = useState([]);
+  const dispatch = useDispatch();
+  const pokemon = useSelector(state => state.pokemon);
+  const types = useSelector(state => state.types);
+  const search = useSelector(state => state.search);
 
-  const [colorDict, setColorDict] = useState({});
+  let words = [];
+  const colorDict = {};
 
   useEffect(() => {
-    const fetchData = async () => {
-      const response = await axios.get('http://localhost:5000/pokemon/all');
-      const newDict = {};
-      for (let x = 0; x < response.data.length; x++)
-        newDict[response.data[x].name] =
-          colorFromType[response.data[x].types[0]];
-      setColorDict(newDict);
-      setWords(
-        response.data.map(pokemon => {
-          return {
-            text: pokemon.name,
-            value: pokemon.views
-          };
-        })
-      );
-    };
-    fetchData();
-  }, []);
+    dispatch(fetchAllPokemon(types, search));
+  }, [types, search]);
 
   function onWordClick() {
     return function(word) {
       console.log(word);
     };
+  }
+
+  if (pokemon) {
+    for (let x = 0; x < pokemon.length; x++)
+      colorDict[pokemon[x].name] = colorFromType[pokemon[x].types[0]];
+    words = pokemon.map(pokemon => {
+      return {
+        text: pokemon.name,
+        value: pokemon.views
+      };
+    });
   }
 
   return (
