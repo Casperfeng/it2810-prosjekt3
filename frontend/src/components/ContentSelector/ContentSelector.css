@@ -1,0 +1,22 @@
+.contentSelectorButtons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.contentSelector {
+  width: 300px;
+  height: 30px;
+  margin: 3px;
+  border-radius: 7px;
+}
+
+.selectedContent {
+  background: white;
+  outline: none !important;
+  font-weight: 600;
+}
+
+.selectedContent:hover {
+  cursor: default;
+}

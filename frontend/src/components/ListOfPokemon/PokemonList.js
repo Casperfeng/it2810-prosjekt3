@@ -47,7 +47,7 @@ function PokemonList() {
         {pokemon.length !== 0 ? (
           generatePokemon()
         ) : (
-          <h3>No pokemon found matching search criterias</h3>
+          <h3>No pokemon matches the search criteria</h3>
         )}
       </div>
       <div className='loadbuttonContainer'>

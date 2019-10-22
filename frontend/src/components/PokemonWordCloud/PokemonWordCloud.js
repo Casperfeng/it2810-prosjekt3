@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchAllPokemon } from '../../store/ducks/pokemonDuck';
+import { openModal } from '../../store/ducks/modalDuck';
 import ReactWordcloud from 'react-wordcloud';
 import { colorFromType } from '../../common/constants';
+import './PokemonWordCloud.css';
 
 export default function PokemonList() {
   const dispatch = useDispatch();
@@ -19,7 +21,18 @@ export default function PokemonList() {
 
   function onWordClick() {
     return function(word) {
-      console.log(word);
+      const selectedPokemon = pokemon.filter(
+        pokemon => pokemon.name === word.text
+      )[0];
+      dispatch(
+        openModal({
+          id: selectedPokemon.id,
+          stats: selectedPokemon.stats,
+          name: selectedPokemon.name,
+          types: selectedPokemon.types,
+          views: selectedPokemon.views
+        })
+      );
     };
   }
 
@@ -35,7 +48,7 @@ export default function PokemonList() {
   }
 
   return (
-    <div style={{ backgroundColor: '#EEEEEE' }}>
+    <div className='wordCloud'>
       <ReactWordcloud
         options={{
           fontSizes: [15, 80]

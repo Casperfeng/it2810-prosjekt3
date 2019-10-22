@@ -4,10 +4,11 @@ import PokemonList from './components/ListOfPokemon/PokemonList';
 import PokemonModal from './components/PokemonModal/PokemonModal';
 import PokemonWordCloud from './components/PokemonWordCloud/PokemonWordCloud';
 import Searchbar from './components/Searchbar/Searchbar';
+import ContentSelector from './components/ContentSelector/ContentSelector';
 import './App.css';
 
 function App() {
-  const showWordCloud = true;
+  const showPokemon = useSelector(state => state.showPokemon);
   const modalInfo = useSelector(state => state.modalInfo);
   return (
     <div className='App'>
@@ -17,8 +18,12 @@ function App() {
       <div className='searchbarContainer'>
         <Searchbar />
       </div>
-      <div className='pokemonListContainer'>
-        {showWordCloud ? <PokemonWordCloud /> : <PokemonList />}
+      <div className='contentSelectorContainer'>
+        <h2>Change content</h2>
+        <ContentSelector />
+      </div>
+      <div className='pokemonContentContainer'>
+        {showPokemon ? <PokemonList /> : <PokemonWordCloud />}
       </div>
       {modalInfo.show && <PokemonModal />}
     </div>

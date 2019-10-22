@@ -18,7 +18,7 @@ export default function Searchbar() {
           />
         </div>
       </div>
-      <h3>Filter by type:</h3>
+      <h2>Filter by type:</h2>
       <div className='filterbuttonContainer'>
         <Filterbutton text='poison' typeColor={'#C874C8'} />
         <Filterbutton text='grass' typeColor={'#A3DA89'} />

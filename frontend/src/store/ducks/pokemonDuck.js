@@ -12,7 +12,6 @@ export default function pokemonReducer(state = [], action) {
     case FETCH_POKEMON_SUCCESS:
       return [...state, ...action.payload];
     case FETCH_ALL_POKEMON_SUCCESS:
-      console.log('heihei');
       return [...action.payload];
     case FETCH_POKEMON_FAILURE:
       throw Error(
@@ -75,12 +74,6 @@ export function fetchAllPokemon(
   for (let i = 0; i < types.length; i++) {
     typesString += `&type${i === 0 ? '' : i}=${types[i]}`;
   }
-  console.log(
-    `http://localhost:5000/pokemon/?skip=${skip +
-      typesString +
-      searchString +
-      limitString}`
-  );
   return dispatch =>
     axios
       .get(
