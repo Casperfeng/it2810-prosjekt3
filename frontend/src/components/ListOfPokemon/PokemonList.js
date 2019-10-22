@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { fetchPokemon, clearPokemon } from '../../store/ducks/pokemonDuck';
 import Pokemon from './Pokemon/Pokemon';
 import Loadbutton from './Loadbutton/Loadbutton';
+import PokemonDropdown from './PokemonDropdown/PokemonDropdown';
 import './PokemonList.css';
 
 function PokemonList() {
@@ -10,17 +11,16 @@ function PokemonList() {
   const pokemon = useSelector(state => state.pokemon);
   const types = useSelector(state => state.types);
   const search = useSelector(state => state.search);
+  const sortInfo = useSelector(state => state.sortInfo);
 
   useEffect(() => {
     if (pokemon) {
       dispatch(clearPokemon());
     }
-    dispatch(fetchPokemon(0, types, search));
-  }, [types, search]);
-
-  function sortPokemon() {
-    pokemon.sort((pokemon1, pokemon2) => (pokemon1.id > pokemon2.id ? 1 : -1));
-  }
+    dispatch(
+      fetchPokemon(0, types, search, sortInfo.sortBy, sortInfo.ascending)
+    );
+  }, [types, search, sortInfo]);
 
   function generatePokemon() {
     const pokemonItem = pokemon.map(pokemon => (
@@ -35,14 +35,11 @@ function PokemonList() {
     ));
     return pokemonItem;
   }
-  if (pokemon) {
-    if (pokemon.length > 2) {
-      sortPokemon();
-    }
-  }
 
   return (
-    <div>
+    <div className='dropDownListContainer'>
+      <h2>Sort by:</h2>
+      <PokemonDropdown />
       <div className='pokemonListContainer'>
         {pokemon.length !== 0 ? (
           generatePokemon()

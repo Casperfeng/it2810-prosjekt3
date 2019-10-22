@@ -3,7 +3,7 @@ const SHOW_POKEMON = 'SHOW_POKEMON';
 const SHOW_WORD_CLOUD = 'SHOW_WORD_CLOUD';
 
 // Reducer
-export default function contentReducer(state = false, action) {
+export default function contentReducer(state = true, action) {
   switch (action.type) {
     case SHOW_POKEMON:
       return true;
