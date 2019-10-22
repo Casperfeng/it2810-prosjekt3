@@ -16,7 +16,7 @@ export default function typesReducer(state = [], action) {
   }
 }
 
-// Action creator
+// Action creators
 export function updateType(type = '') {
   return {
     type: UPDATE_TYPE,

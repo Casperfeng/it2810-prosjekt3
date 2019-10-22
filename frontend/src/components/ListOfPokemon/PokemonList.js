@@ -1,6 +1,10 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchPokemon, clearPokemon } from '../../store/ducks/pokemonDuck';
+import {
+  fetchPokemon,
+  clearPokemon,
+  updateView
+} from '../../store/ducks/pokemonDuck';
 import Pokemon from './Pokemon/Pokemon';
 import Loadbutton from './Loadbutton/Loadbutton';
 import PokemonDropdown from './PokemonDropdown/PokemonDropdown';
@@ -12,6 +16,7 @@ function PokemonList() {
   const types = useSelector(state => state.types);
   const search = useSelector(state => state.search);
   const sortInfo = useSelector(state => state.sortInfo);
+  const modalInfo = useSelector(state => state.modalInfo);
 
   useEffect(() => {
     if (pokemon) {
@@ -21,6 +26,12 @@ function PokemonList() {
       fetchPokemon(0, types, search, sortInfo.sortBy, sortInfo.ascending)
     );
   }, [types, search, sortInfo]);
+
+  useEffect(() => {
+    if (modalInfo) {
+      dispatch(updateView(modalInfo.id));
+    }
+  }, [modalInfo]);
 
   function generatePokemon() {
     const pokemonItem = pokemon.map(pokemon => (

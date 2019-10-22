@@ -5,6 +5,7 @@ const FETCH_ALL_POKEMON_SUCCESS = 'FETCH_ALL_POKEMON_SUCCESS';
 const FETCH_POKEMON_SUCCESS = 'FETCH_POKEMON_SUCCESS';
 const FETCH_POKEMON_FAILURE = 'FETCH_POKEMON_FAILURE';
 const CLEAR_POKEMON = 'CLEAR_POKEMON';
+const UPDATE_VIEW = 'UPDATE_VIEW';
 
 // Reducer
 export default function pokemonReducer(state = [], action) {
@@ -19,11 +20,20 @@ export default function pokemonReducer(state = [], action) {
       );
     case CLEAR_POKEMON:
       return [];
+    case UPDATE_VIEW:
+      const incrementView = view => view + 1;
+      const newState = state.map(pokemon =>
+        pokemon.id === action.payload
+          ? { ...pokemon, views: incrementView(pokemon.views) }
+          : { ...pokemon }
+      );
+      return newState;
     default:
       return state;
   }
 }
 
+// Action creators
 export function fetchPokemonSuccess(response) {
   return {
     type: FETCH_POKEMON_SUCCESS,
@@ -44,7 +54,6 @@ export function fetchPokemonFailure() {
   };
 }
 
-// Action creator
 export function fetchPokemon(
   skip = 0,
   types = [],
@@ -99,5 +108,12 @@ export function fetchAllPokemon(
 export function clearPokemon() {
   return {
     type: 'CLEAR_POKEMON'
+  };
+}
+
+export function updateView(id) {
+  return {
+    type: UPDATE_VIEW,
+    payload: id
   };
 }
