@@ -10,6 +10,7 @@ export default function Searchbar() {
   const delayedQuery = _.debounce(q => dispatch(updateSearch(q)), 500);
   return (
     <div className='searchbarContentContainer'>
+      <h2>Filter by search:</h2>
       <div className='searchbar'>
         <div>
           <input

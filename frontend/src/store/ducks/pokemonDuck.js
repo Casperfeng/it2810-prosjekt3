@@ -45,8 +45,16 @@ export function fetchPokemonFailure() {
 }
 
 // Action creator
-export function fetchPokemon(skip = 0, types = [], search = '') {
+export function fetchPokemon(
+  skip = 0,
+  types = [],
+  search = '',
+  sortParam = '',
+  asc = true
+) {
   const searchString = search ? `&name=${search}` : '';
+  const sortString = sortParam ? `&sort=${sortParam}` : '';
+  const orderString = asc ? '' : 'DESC';
   let typesString = '';
   for (let i = 0; i < types.length; i++) {
     typesString += `&type${i === 0 ? '' : i}=${types[i]}`;
@@ -56,7 +64,9 @@ export function fetchPokemon(skip = 0, types = [], search = '') {
       .get(
         `http://localhost:5000/pokemon/?skip=${skip +
           typesString +
-          searchString}`
+          searchString +
+          sortString +
+          orderString}`
       )
       .then(response => dispatch(fetchPokemonSuccess(response)))
       .catch(err => dispatch(fetchPokemonFailure(err)));
