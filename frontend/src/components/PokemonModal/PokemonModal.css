@@ -75,7 +75,8 @@ header {
 }
 .pokemonImage {
   grid-area: image;
-  width: auto;
+  object-fit: contain;
+  width: 250px;
   height: 100%;
   border-radius: 5px;
   background-color: #eeeeee;
@@ -127,6 +128,10 @@ header {
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr;
     grid-template-areas: 'views headerText close';
+  }
+  .pokemonImage {
+    width: 358px;
+    height: 358px;
   }
   .pokemonTypes {
     flex-direction: row;
