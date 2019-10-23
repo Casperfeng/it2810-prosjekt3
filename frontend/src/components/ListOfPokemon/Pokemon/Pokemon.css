@@ -1,0 +1,27 @@
+.pokemonItemContainer {
+  position: relative;
+  height: 150px;
+  width: 150px;
+  border: 0.1px solid grey;
+  margin: 4px;
+}
+
+.pokemonItemContainer:hover {
+  height: 154px;
+  width: 154px;
+  margin: 2px;
+  cursor: pointer;
+}
+
+.pokemonSprite {
+  width: 70%;
+}
+
+.pokemonName {
+  color: white;
+  text-transform: capitalize;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(70, 70, 70, 0.6);
+}
