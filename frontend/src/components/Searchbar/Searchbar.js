@@ -14,7 +14,7 @@ export default function Searchbar() {
       <div className='searchbar'>
         <input
           className='searchbarInput'
-          placeholder='Search pokemon names here...'
+          placeholder='Search for pokemon . . .'
           onChange={e => delayedQuery(e.target.value)}
         />
         <div className='pokemonDropdownContainer'>

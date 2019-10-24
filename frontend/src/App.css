@@ -6,7 +6,9 @@
   min-width: 500px;
   position: relative;
 }
+
 .title {
+  margin-top: 20px;
   margin-bottom: 15px;
 }
 

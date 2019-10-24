@@ -25,7 +25,7 @@ export default function Loadbutton() {
         )
       }
     >
-      Load more...
+      Load more . . .
     </button>
   );
 }

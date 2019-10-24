@@ -11,6 +11,7 @@
   width: 154px;
   margin: 2px;
   cursor: pointer;
+  box-shadow: 0px 2px 5px rgba(46, 46, 46, 100);
 }
 
 .pokemonSprite {

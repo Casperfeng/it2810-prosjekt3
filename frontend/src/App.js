@@ -29,7 +29,7 @@ function App() {
   return (
     <div className='App'>
       <div className='title'>
-        <h1>Pokedex</h1>
+        <h1>Pokédex</h1>
       </div>
       <div className='searchbarContainer'>
         <Searchbar />

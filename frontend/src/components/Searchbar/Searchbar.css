@@ -1,11 +1,11 @@
 .searchbarContentContainer {
-  margin-bottom: 15px;
+  margin-bottom: 30px;
 }
 
 .searchbar {
   display: flex;
   justify-content: center;
-  margin-bottom: 15px;
+  margin-bottom: 5px;
 }
 
 .searchbar input {
