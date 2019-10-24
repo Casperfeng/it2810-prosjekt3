@@ -1,0 +1,18 @@
+[
+  {
+    "types": ["psychic"],
+    "stats": [106, 110, 90, 154, 90, 130],
+    "_id": "5da9a4a6722ca1d0788ad138",
+    "id": 150,
+    "name": "mewtwo",
+    "views": 6
+  },
+  {
+    "types": ["psychic"],
+    "stats": [100, 100, 100, 100, 100, 100],
+    "_id": "5da9a4a6722ca1d0788ad139",
+    "id": 151,
+    "name": "mew",
+    "views": 5
+  }
+]
