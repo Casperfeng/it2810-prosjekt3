@@ -6,9 +6,12 @@
   min-width: 500px;
   position: relative;
 }
+.title {
+  margin-bottom: 15px;
+}
 
 .searchbarContainer {
-  margin: 15px auto;
+  margin: auto;
 }
 
 .pokemonContentContainer {
@@ -16,4 +19,9 @@
   display: flex;
   margin: auto;
   place-content: center;
+}
+
+.loadbuttonContainer {
+  height: 70px;
+  margin: auto;
 }
