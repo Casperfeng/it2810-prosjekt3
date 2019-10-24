@@ -19,7 +19,6 @@ function App() {
         <Searchbar />
       </div>
       <div className='contentSelectorContainer'>
-        <h2>Choose content:</h2>
         <ContentSelector />
       </div>
       <div className='pokemonContentContainer'>
