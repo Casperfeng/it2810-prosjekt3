@@ -3,20 +3,21 @@ import axios from 'axios';
 // Actions
 const FETCH_POKEMON_SUCCESS = 'FETCH_POKEMON_SUCCESS';
 const FETCH_POKEMON_FAILURE = 'FETCH_POKEMON_FAILURE';
-const CLEAR_POKEMON = 'CLEAR_POKEMON';
 const UPDATE_VIEW = 'UPDATE_VIEW';
 
 // Reducer
 export default function pokemonReducer(state = [], action) {
   switch (action.type) {
     case FETCH_POKEMON_SUCCESS:
-      return [...state, ...action.payload];
+      const loadMore = action.payload.pop();
+      if (loadMore) {
+        return [...state, ...action.payload];
+      }
+      return [...action.payload];
     case FETCH_POKEMON_FAILURE:
       throw Error(
         'Pokemon loading error, check if backend is connected properly'
       );
-    case CLEAR_POKEMON:
-      return [];
     case UPDATE_VIEW:
       const incrementView = view => view + 1;
       const newState = state.map(pokemon =>
@@ -31,7 +32,8 @@ export default function pokemonReducer(state = [], action) {
 }
 
 // Action creators
-export function fetchPokemonSuccess(response) {
+export function fetchPokemonSuccess(response, loadMore) {
+  response.data.push(loadMore);
   return {
     type: FETCH_POKEMON_SUCCESS,
     payload: response.data
@@ -49,7 +51,8 @@ export function fetchPokemon(
   types = [],
   search = '',
   sortParam = '',
-  asc = true
+  asc = true,
+  loadMore = false
 ) {
   const searchString = search ? `&name=${search}` : '';
   const sortString = sortParam ? `&sort=${sortParam}` : '';
@@ -67,14 +70,8 @@ export function fetchPokemon(
           sortString +
           orderString}`
       )
-      .then(response => dispatch(fetchPokemonSuccess(response)))
+      .then(response => dispatch(fetchPokemonSuccess(response, loadMore)))
       .catch(err => dispatch(fetchPokemonFailure(err)));
-}
-
-export function clearPokemon() {
-  return {
-    type: 'CLEAR_POKEMON'
-  };
 }
 
 export function updateView(id) {
