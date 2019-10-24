@@ -1,6 +1,6 @@
 import React from 'react';
 import _ from 'lodash';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { updateSearch } from '../../store/ducks/searchDuck';
 import Filterbutton from './Filterbutton/Filterbutton';
 import './Searchbar.css';
@@ -9,7 +9,6 @@ import PokemonDropdown from './PokemonDropdown/PokemonDropdown';
 export default function Searchbar() {
   const dispatch = useDispatch();
   const delayedQuery = _.debounce(q => dispatch(updateSearch(q)), 500);
-  const showPokemon = useSelector(state => state.showPokemon);
   return (
     <div className='searchbarContentContainer'>
       <div className='searchbar'>
@@ -19,7 +18,7 @@ export default function Searchbar() {
           onChange={e => delayedQuery(e.target.value)}
         />
         <div className='pokemonDropdownContainer'>
-          {showPokemon && <PokemonDropdown />}
+          <PokemonDropdown />
         </div>
       </div>
       <h6 className='filterText'>Filter by:</h6>

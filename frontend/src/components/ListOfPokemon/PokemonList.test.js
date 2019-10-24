@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import PokemonList from './PokemonList';
-import Loadbutton from './Loadbutton/Loadbutton';
+import Pokemon from './Pokemon/Pokemon';
 
 jest.mock('react-redux', () => ({
   useDispatch: () => {},
@@ -11,14 +11,44 @@ jest.mock('react-redux', () => ({
 let mockPokemon;
 let component;
 
-test('Check if load more is shown when more pokemon exists ', () => {
-  mockPokemon = new Array(25);
+test('Check if pokemon is correctly generated', () => {
+  mockPokemon = [
+    {
+      _id: 123,
+      id: 1,
+      name: 'bulbasaur',
+      types: ['grass', 'poison'],
+      stats: [45, 49, 49, 65, 65, 45],
+      views: 10
+    }
+  ];
   component = shallow(<PokemonList />);
-  expect(component.contains(<Loadbutton />)).toBeTruthy();
+  expect(
+    component.contains(
+      <Pokemon
+        key={123}
+        name={'bulbasaur'}
+        types={['grass', 'poison']}
+        id={1}
+        stats={[45, 49, 49, 65, 65, 45]}
+        views={10}
+      />
+    )
+  ).toBe(true);
 });
 
-test('Check if load more is not shown when no more pokemon exists', () => {
-  mockPokemon = new Array(151);
+test('Check if load more is shown when more pokemon exists ', () => {
+  mockPokemon = [];
   component = shallow(<PokemonList />);
-  expect(component.contains(<Loadbutton />)).toBe(false);
+  expect(
+    component.contains(
+      <Pokemon
+        name={'bulbasaur'}
+        types={['grass', 'poison']}
+        id={1}
+        stats={[45, 49, 49, 65, 65, 45]}
+        views={10}
+      />
+    )
+  ).toBe(false);
 });
