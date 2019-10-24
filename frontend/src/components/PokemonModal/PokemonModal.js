@@ -22,12 +22,7 @@ function PokemonModal() {
     return types[index];
   }
   return (
-    <div
-      className='pokemonModal'
-      style={{
-        visibility: modalInfo.show ? 'visible' : 'collapse'
-      }}
-    >
+    <div className='pokemonModal'>
       <div className='pokemon'>
         <div className='pokemonHeader'>
           <div className='viewsContainer'>

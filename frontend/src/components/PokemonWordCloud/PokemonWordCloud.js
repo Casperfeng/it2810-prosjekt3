@@ -15,6 +15,8 @@ function PokemonWordCloud() {
       const selectedPokemon = pokemon.filter(
         pokemon => pokemon.name === word.text
       )[0];
+      selectedPokemon.views++;
+      word.value++;
       dispatch(
         openModal({
           id: selectedPokemon.id,

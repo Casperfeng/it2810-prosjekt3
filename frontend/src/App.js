@@ -8,7 +8,7 @@ import ContentSelector from './components/ContentSelector/ContentSelector';
 import './App.css';
 import Loadbutton from './components/Loadbutton/Loadbutton';
 
-import { fetchPokemon, clearPokemon } from './store/ducks/pokemonDuck';
+import { fetchPokemon } from './store/ducks/pokemonDuck';
 
 function App() {
   const dispatch = useDispatch();
@@ -20,10 +20,10 @@ function App() {
   const modalInfo = useSelector(state => state.modalInfo);
 
   useEffect(() => {
-    if (pokemon) dispatch(clearPokemon());
     dispatch(
       fetchPokemon(0, types, search, sortInfo.sortBy, sortInfo.ascending)
     );
+    // eslint-disable-next-line
   }, [types, search, sortInfo]);
 
   return (

@@ -19,7 +19,8 @@ export default function Loadbutton() {
             types,
             search,
             sortInfo.sortBy,
-            sortInfo.ascending
+            sortInfo.ascending,
+            true
           )
         )
       }

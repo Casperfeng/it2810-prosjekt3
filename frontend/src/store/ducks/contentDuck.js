@@ -17,14 +17,12 @@ export default function contentReducer(state = true, action) {
 // Action creator
 export function selectPokemon(showPokemon = true) {
   return {
-    type: SHOW_POKEMON,
-    payload: showPokemon
+    type: SHOW_POKEMON
   };
 }
 
 export function selectWordCloud(showPokemon = false) {
   return {
-    type: SHOW_WORD_CLOUD,
-    payload: showPokemon
+    type: SHOW_WORD_CLOUD
   };
 }
