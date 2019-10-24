@@ -1,6 +1,6 @@
 import { colorFromType } from '../../src/common/constants';
 import Color from 'color';
-import { pokemon } from '../common/pokemon';
+import { pokemon } from '../fixtures/pokemon';
 
 describe('Pokemon list', () => {
   beforeEach(() => {

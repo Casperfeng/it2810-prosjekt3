@@ -1,6 +1,6 @@
 import { colorFromType } from '../../src/common/constants';
 import Color from 'color';
-import { types } from '../common/types';
+import { types } from '../fixtures/types';
 
 describe('Start Page', () => {
   it('gets correct pokemon at starting page', () => {

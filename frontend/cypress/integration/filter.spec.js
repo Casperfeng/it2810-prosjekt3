@@ -1,4 +1,4 @@
-import { poisonPokemon } from '../common/poisonPokemon';
+import { poisonPokemon } from '../fixtures/poisonPokemon';
 
 describe('Filter', () => {
   beforeEach(() => {
