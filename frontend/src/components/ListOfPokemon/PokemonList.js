@@ -7,7 +7,6 @@ import {
 } from '../../store/ducks/pokemonDuck';
 import Pokemon from './Pokemon/Pokemon';
 import Loadbutton from './Loadbutton/Loadbutton';
-import PokemonDropdown from './PokemonDropdown/PokemonDropdown';
 import './PokemonList.css';
 
 function PokemonList() {
@@ -48,9 +47,7 @@ function PokemonList() {
   }
 
   return (
-    <div className='dropDownListContainer'>
-      <h2>Sort by:</h2>
-      <PokemonDropdown />
+    <div>
       <div className='pokemonListContainer'>
         {pokemon.length !== 0 ? (
           generatePokemon()

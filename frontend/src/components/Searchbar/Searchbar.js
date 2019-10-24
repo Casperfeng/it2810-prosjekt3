@@ -1,16 +1,17 @@
 import React from 'react';
 import _ from 'lodash';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { updateSearch } from '../../store/ducks/searchDuck';
 import Filterbutton from './Filterbutton/Filterbutton';
 import './Searchbar.css';
+import PokemonDropdown from './PokemonDropdown/PokemonDropdown';
 
 export default function Searchbar() {
   const dispatch = useDispatch();
   const delayedQuery = _.debounce(q => dispatch(updateSearch(q)), 500);
+  const showPokemon = useSelector(state => state.showPokemon);
   return (
     <div className='searchbarContentContainer'>
-      <h2>Filter by search:</h2>
       <div className='searchbar'>
         <div>
           <input
@@ -18,8 +19,11 @@ export default function Searchbar() {
             onChange={e => delayedQuery(e.target.value)}
           />
         </div>
+        <div className='pokemonDropdownContainer'>
+          {showPokemon && <PokemonDropdown />}
+        </div>
       </div>
-      <h2>Filter by type:</h2>
+      <h6 className='filterText'>Filter by:</h6>
       <div className='filterbuttonContainer'>
         <Filterbutton text='poison' typeColor={'#C874C8'} />
         <Filterbutton text='grass' typeColor={'#A3DA89'} />
