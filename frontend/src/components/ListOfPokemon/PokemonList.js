@@ -13,6 +13,7 @@ function PokemonList() {
     if (modalInfo) {
       dispatch(updateView(modalInfo.id));
     }
+    // eslint-disable-next-line
   }, [modalInfo]);
 
   function generatePokemon() {

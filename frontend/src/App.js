@@ -23,6 +23,7 @@ function App() {
     dispatch(
       fetchPokemon(0, types, search, sortInfo.sortBy, sortInfo.ascending)
     );
+    // eslint-disable-next-line
   }, [types, search, sortInfo]);
 
   return (
