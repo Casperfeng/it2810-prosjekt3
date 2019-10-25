@@ -15,7 +15,7 @@ export default function pokemonReducer(state = [], action) {
       }
       return [...action.payload];
     case FETCH_POKEMON_FAILURE:
-      throw Error(
+      console.log(
         'Pokemon loading error, check if backend is connected properly'
       );
     case UPDATE_VIEW:
