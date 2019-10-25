@@ -7,6 +7,7 @@ export default function PokemonDropdown() {
   const dispatch = useDispatch();
 
   function handleOptionSelect(optionValue) {
+    //Omgjør value til verdier som videre behandles i Redux
     const optionArray = optionValue.split(' ');
     optionArray[1] = optionArray.includes('asc');
     dispatch(fireAction(optionArray[0], optionArray[1]));

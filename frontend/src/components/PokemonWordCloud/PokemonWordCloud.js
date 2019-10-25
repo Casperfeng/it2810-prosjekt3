@@ -12,6 +12,7 @@ function PokemonWordCloud() {
 
   function onWordClick() {
     return function(word) {
+      //finner pokemoninformasjon fra ordet som ble trykket og videresender til redux
       const selectedPokemon = pokemon.filter(
         pokemon => pokemon.name === word.text
       )[0];
@@ -29,6 +30,7 @@ function PokemonWordCloud() {
     };
   }
 
+  //itererer gjennom pokemon og legger ord og verdi inn i words-arrayen
   function getWords() {
     for (let x = 0; x < pokemon.length; x++)
       colorDict[pokemon[x].name] = colorFromType[pokemon[x].types[0]];
