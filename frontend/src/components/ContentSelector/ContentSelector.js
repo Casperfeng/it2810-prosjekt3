@@ -6,20 +6,29 @@ import './ContentSelector.css';
 export default function ContentSelector() {
   const dispatch = useDispatch();
   const showPokemon = useSelector(state => state.showPokemon);
-  return (
-    <div className='contentSelectorButtons'>
+  function pokemonBtn() {
+    return (
       <button
-        className={`contentSelector ${showPokemon ? 'selectedContent' : ''}`}
+        className={'contentSelector'}
         onClick={() => dispatch(selectPokemon())}
       >
         Show pokemon
       </button>
+    );
+  }
+  function wordcloudBtn() {
+    return (
       <button
-        className={`contentSelector ${!showPokemon ? 'selectedContent' : ''}`}
+        className={'contentSelector'}
         onClick={() => dispatch(selectWordCloud())}
       >
         Show word cloud
       </button>
+    );
+  }
+  return (
+    <div className='contentSelectorButtons'>
+      {showPokemon ? wordcloudBtn() : pokemonBtn()}
     </div>
   );
 }

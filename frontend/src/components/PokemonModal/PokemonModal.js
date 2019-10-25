@@ -9,25 +9,26 @@ function PokemonModal() {
   const dispatch = useDispatch();
   const modalInfo = useSelector(state => state.modalInfo);
 
-  function formatedID() {
+  /**
+   * Returns the id formatted as three digits.
+   */
+  function formattedID() {
     const id = modalInfo.id;
     let toReturn = '';
     if (id < 100) toReturn += '0';
     if (id < 10) toReturn += '0';
     return toReturn + id;
   }
+
+  /**
+   * * Returns the type with the corresponding index. If no type exists, return an empty string;
+   */
   function type(index) {
-    const types = modalInfo.types;
-    if (index >= types.length) return '';
-    return types[index];
+    return index < modalInfo.types.length ? modalInfo.types[index] : '';
   }
+
   return (
-    <div
-      className='pokemonModal'
-      style={{
-        visibility: modalInfo.show ? 'visible' : 'collapse'
-      }}
-    >
+    <div className='pokemonModal'>
       <div className='pokemon'>
         <div className='pokemonHeader'>
           <div className='viewsContainer'>
@@ -39,7 +40,7 @@ function PokemonModal() {
             <p className='viewsText'>{modalInfo.views}</p>
           </div>
           <p className='pokemonText'>
-            {modalInfo.name} <span className='grayText'>#{formatedID()}</span>
+            {modalInfo.name} <span className='grayText'>#{formattedID()}</span>
           </p>
           <img
             className='modalCloseButton'
@@ -52,7 +53,7 @@ function PokemonModal() {
           className='pokemonImage'
           src={
             'https://assets.pokemon.com/assets/cms2/img/pokedex/full/' +
-            formatedID() +
+            formattedID() +
             '.png'
           }
           alt={modalInfo.name}

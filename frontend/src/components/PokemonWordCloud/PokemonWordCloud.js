@@ -1,29 +1,26 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchAllPokemon } from '../../store/ducks/pokemonDuck';
 import { openModal } from '../../store/ducks/modalDuck';
 import ReactWordcloud from 'react-wordcloud';
 import { colorFromType } from '../../common/constants';
 import './PokemonWordCloud.css';
 
-export default function PokemonList() {
+function PokemonWordCloud() {
   const dispatch = useDispatch();
   const pokemon = useSelector(state => state.pokemon);
-  const types = useSelector(state => state.types);
-  const search = useSelector(state => state.search);
-
-  let words = [];
   const colorDict = {};
 
-  useEffect(() => {
-    dispatch(fetchAllPokemon(types, search));
-  }, [types, search]);
-
+  /**
+   * Åpner modalen til pokemon trykket på
+   */
   function onWordClick() {
     return function(word) {
+      /* Finner pokemoninformasjon fra ordet som ble trykket og videresender til redux */
       const selectedPokemon = pokemon.filter(
         pokemon => pokemon.name === word.text
       )[0];
+      selectedPokemon.views++;
+      word.value++;
       dispatch(
         openModal({
           id: selectedPokemon.id,
@@ -36,10 +33,14 @@ export default function PokemonList() {
     };
   }
 
-  if (pokemon) {
+  /**
+   * Genererer ord for hver pokemon hentet, og lager en farge for hver pokemon
+   * Fargen blir generert fra hver pokemon sin types[0] verdi.
+   */
+  function getWords() {
     for (let x = 0; x < pokemon.length; x++)
       colorDict[pokemon[x].name] = colorFromType[pokemon[x].types[0]];
-    words = pokemon.map(pokemon => {
+    return pokemon.map(pokemon => {
       return {
         text: pokemon.name,
         value: pokemon.views
@@ -64,8 +65,9 @@ export default function PokemonList() {
         }}
         maxWords={151}
         size={[500, 500]}
-        words={words}
+        words={getWords()}
       />
     </div>
   );
 }
+export default React.memo(PokemonWordCloud);

@@ -1,11 +1,11 @@
 .searchbarContentContainer {
-  margin-bottom: 15px;
+  margin-bottom: 30px;
 }
 
 .searchbar {
   display: flex;
   justify-content: center;
-  margin-bottom: 15px;
+  margin-bottom: 5px;
 }
 
 .searchbar input {
@@ -15,7 +15,7 @@
   margin: 10px;
   height: 40px;
   width: 300px;
-  border: 1px solid #eaeaea;
+  border: 1px solid #dadada;
   outline: none;
   font-size: 16px;
 }
@@ -27,10 +27,17 @@
 .searchbar input:focus {
   border-color: #4d90fe;
 }
+.pokemonDropdownContainer {
+  margin: auto 0 auto 0;
+}
+
+.filterText {
+  color: rgb(128, 128, 128);
+}
 
 .filterbuttonContainer {
   margin: auto;
-  width: 70%;
+  width: 60%;
   display: flex;
   flex-wrap: wrap;
   place-content: center;

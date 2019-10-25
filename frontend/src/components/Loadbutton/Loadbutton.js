@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchPokemon } from '../../../store/ducks/pokemonDuck';
+import { fetchPokemon } from '../../store/ducks/pokemonDuck';
 import './Loadbutton.css';
 
 export default function Loadbutton() {
@@ -19,12 +19,13 @@ export default function Loadbutton() {
             types,
             search,
             sortInfo.sortBy,
-            sortInfo.ascending
+            sortInfo.ascending,
+            true
           )
         )
       }
     >
-      Load more...
+      Load more . . .
     </button>
   );
 }
