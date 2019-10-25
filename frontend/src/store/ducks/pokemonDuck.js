@@ -74,7 +74,7 @@ export function fetchPokemon(
   return dispatch =>
     axios
       .get(
-        `http://localhost:5000/pokemon/?skip=${skip +
+        `http://it2810-03.idi.ntnu.no:5000/pokemon/?skip=${skip +
           typesString +
           searchString +
           sortString +
