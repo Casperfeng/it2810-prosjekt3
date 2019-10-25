@@ -4,22 +4,27 @@ import { useDispatch } from 'react-redux';
 import { updateSearch } from '../../store/ducks/searchDuck';
 import Filterbutton from './Filterbutton/Filterbutton';
 import './Searchbar.css';
+import PokemonDropdown from './PokemonDropdown/PokemonDropdown';
 
 export default function Searchbar() {
   const dispatch = useDispatch();
+  /**
+   * Brukes for å unngå unødvendige kall til backenden
+   */
   const delayedQuery = _.debounce(q => dispatch(updateSearch(q)), 500);
   return (
     <div className='searchbarContentContainer'>
-      <h2>Filter by search:</h2>
       <div className='searchbar'>
-        <div>
-          <input
-            placeholder='Search pokemon names here...'
-            onChange={e => delayedQuery(e.target.value)}
-          />
+        <input
+          className='searchbarInput'
+          placeholder='Search for pokemon . . .'
+          onChange={e => delayedQuery(e.target.value)}
+        />
+        <div className='pokemonDropdownContainer'>
+          <PokemonDropdown />
         </div>
       </div>
-      <h2>Filter by type:</h2>
+      <h6 className='filterText'>Filter by:</h6>
       <div className='filterbuttonContainer'>
         <Filterbutton text='poison' typeColor={'#C874C8'} />
         <Filterbutton text='grass' typeColor={'#A3DA89'} />

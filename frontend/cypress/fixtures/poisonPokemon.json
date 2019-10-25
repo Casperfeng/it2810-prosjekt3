@@ -1,0 +1,446 @@
+[
+    {
+        "types": [
+            "grass",
+            "poison"
+        ],
+        "stats": [
+            45,
+            49,
+            49,
+            65,
+            65,
+            45
+        ],
+        "_id": "5da9a4a6722ca1d0788ad0a3",
+        "id": 1,
+        "name": "bulbasaur",
+        "views": 312
+    },
+    {
+        "types": [
+            "grass",
+            "poison"
+        ],
+        "stats": [
+            60,
+            62,
+            63,
+            80,
+            80,
+            60
+        ],
+        "_id": "5da9a4a6722ca1d0788ad0a4",
+        "id": 2,
+        "name": "ivysaur",
+        "views": 39
+    },
+    {
+        "types": [
+            "grass",
+            "poison"
+        ],
+        "stats": [
+            80,
+            82,
+            83,
+            100,
+            100,
+            80
+        ],
+        "_id": "5da9a4a6722ca1d0788ad0a5",
+        "id": 3,
+        "name": "venusaur",
+        "views": 56
+    },
+    {
+        "types": [
+            "bug",
+            "poison"
+        ],
+        "stats": [
+            40,
+            35,
+            30,
+            20,
+            20,
+            50
+        ],
+        "_id": "5da9a4a6722ca1d0788ad0af",
+        "id": 13,
+        "name": "weedle",
+        "views": 3
+    },
+    {
+        "types": [
+            "bug",
+            "poison"
+        ],
+        "stats": [
+            45,
+            25,
+            50,
+            25,
+            25,
+            35
+        ],
+        "_id": "5da9a4a6722ca1d0788ad0b0",
+        "id": 14,
+        "name": "kakuna",
+        "views": 8
+    },
+    {
+        "types": [
+            "bug",
+            "poison"
+        ],
+        "stats": [
+            65,
+            90,
+            40,
+            45,
+            80,
+            75
+        ],
+        "_id": "5da9a4a6722ca1d0788ad0b1",
+        "id": 15,
+        "name": "beedrill",
+        "views": 5
+    },
+    {
+        "types": [
+            "poison"
+        ],
+        "stats": [
+            35,
+            60,
+            44,
+            40,
+            54,
+            55
+        ],
+        "_id": "5da9a4a6722ca1d0788ad0b9",
+        "id": 23,
+        "name": "ekans",
+        "views": 3
+    },
+    {
+        "types": [
+            "poison"
+        ],
+        "stats": [
+            60,
+            95,
+            69,
+            65,
+            79,
+            80
+        ],
+        "_id": "5da9a4a6722ca1d0788ad0ba",
+        "id": 24,
+        "name": "arbok",
+        "views": 17
+    },
+    {
+        "types": [
+            "poison"
+        ],
+        "stats": [
+            55,
+            47,
+            52,
+            40,
+            40,
+            41
+        ],
+        "_id": "5da9a4a6722ca1d0788ad0bf",
+        "id": 29,
+        "name": "nidoran-f",
+        "views": 1
+    },
+    {
+        "types": [
+            "poison"
+        ],
+        "stats": [
+            70,
+            62,
+            67,
+            55,
+            55,
+            56
+        ],
+        "_id": "5da9a4a6722ca1d0788ad0c0",
+        "id": 30,
+        "name": "nidorina",
+        "views": 1
+    },
+    {
+        "types": [
+            "poison",
+            "ground"
+        ],
+        "stats": [
+            90,
+            92,
+            87,
+            75,
+            85,
+            76
+        ],
+        "_id": "5da9a4a6722ca1d0788ad0c1",
+        "id": 31,
+        "name": "nidoqueen",
+        "views": 0
+    },
+    {
+        "types": [
+            "poison"
+        ],
+        "stats": [
+            46,
+            57,
+            40,
+            40,
+            40,
+            50
+        ],
+        "_id": "5da9a4a6722ca1d0788ad0c2",
+        "id": 32,
+        "name": "nidoran-m",
+        "views": 0
+    },
+    {
+        "types": [
+            "poison"
+        ],
+        "stats": [
+            61,
+            72,
+            57,
+            55,
+            55,
+            65
+        ],
+        "_id": "5da9a4a6722ca1d0788ad0c3",
+        "id": 33,
+        "name": "nidorino",
+        "views": 1
+    },
+    {
+        "types": [
+            "poison",
+            "ground"
+        ],
+        "stats": [
+            81,
+            102,
+            77,
+            85,
+            75,
+            85
+        ],
+        "_id": "5da9a4a6722ca1d0788ad0c4",
+        "id": 34,
+        "name": "nidoking",
+        "views": 0
+    },
+    {
+        "types": [
+            "poison",
+            "flying"
+        ],
+        "stats": [
+            40,
+            45,
+            35,
+            30,
+            40,
+            55
+        ],
+        "_id": "5da9a4a6722ca1d0788ad0cb",
+        "id": 41,
+        "name": "zubat",
+        "views": 0
+    },
+    {
+        "types": [
+            "poison",
+            "flying"
+        ],
+        "stats": [
+            75,
+            80,
+            70,
+            65,
+            75,
+            90
+        ],
+        "_id": "5da9a4a6722ca1d0788ad0cc",
+        "id": 42,
+        "name": "golbat",
+        "views": 0
+    },
+    {
+        "types": [
+            "grass",
+            "poison"
+        ],
+        "stats": [
+            45,
+            50,
+            55,
+            75,
+            65,
+            30
+        ],
+        "_id": "5da9a4a6722ca1d0788ad0cd",
+        "id": 43,
+        "name": "oddish",
+        "views": 0
+    },
+    {
+        "types": [
+            "grass",
+            "poison"
+        ],
+        "stats": [
+            60,
+            65,
+            70,
+            85,
+            75,
+            40
+        ],
+        "_id": "5da9a4a6722ca1d0788ad0ce",
+        "id": 44,
+        "name": "gloom",
+        "views": 0
+    },
+    {
+        "types": [
+            "grass",
+            "poison"
+        ],
+        "stats": [
+            75,
+            80,
+            85,
+            110,
+            90,
+            50
+        ],
+        "_id": "5da9a4a6722ca1d0788ad0cf",
+        "id": 45,
+        "name": "vileplume",
+        "views": 0
+    },
+    {
+        "types": [
+            "bug",
+            "poison"
+        ],
+        "stats": [
+            60,
+            55,
+            50,
+            40,
+            55,
+            45
+        ],
+        "_id": "5da9a4a6722ca1d0788ad0d2",
+        "id": 48,
+        "name": "venonat",
+        "views": 1
+    },
+    {
+        "types": [
+            "bug",
+            "poison"
+        ],
+        "stats": [
+            70,
+            65,
+            60,
+            90,
+            75,
+            90
+        ],
+        "_id": "5da9a4a6722ca1d0788ad0d3",
+        "id": 49,
+        "name": "venomoth",
+        "views": 0
+    },
+    {
+        "types": [
+            "grass",
+            "poison"
+        ],
+        "stats": [
+            50,
+            75,
+            35,
+            70,
+            30,
+            40
+        ],
+        "_id": "5da9a4a6722ca1d0788ad0e7",
+        "id": 69,
+        "name": "bellsprout",
+        "views": 0
+    },
+    {
+        "types": [
+            "grass",
+            "poison"
+        ],
+        "stats": [
+            65,
+            90,
+            50,
+            85,
+            45,
+            55
+        ],
+        "_id": "5da9a4a6722ca1d0788ad0e8",
+        "id": 70,
+        "name": "weepinbell",
+        "views": 1
+    },
+    {
+        "types": [
+            "grass",
+            "poison"
+        ],
+        "stats": [
+            80,
+            105,
+            65,
+            100,
+            70,
+            70
+        ],
+        "_id": "5da9a4a6722ca1d0788ad0e9",
+        "id": 71,
+        "name": "victreebel",
+        "views": 1
+    },
+    {
+        "types": [
+            "water",
+            "poison"
+        ],
+        "stats": [
+            40,
+            40,
+            35,
+            50,
+            100,
+            70
+        ],
+        "_id": "5da9a4a6722ca1d0788ad0ea",
+        "id": 72,
+        "name": "tentacool",
+        "views": 0
+    }
+]

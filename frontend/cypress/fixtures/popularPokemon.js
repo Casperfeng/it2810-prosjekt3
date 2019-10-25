@@ -1,0 +1,437 @@
+export const popularPokemon = [
+    {
+        "types": [
+            "grass",
+            "poison"
+        ],
+        "stats": [
+            45,
+            49,
+            49,
+            65,
+            65,
+            45
+        ],
+        "_id": "5da9a4a6722ca1d0788ad0a3",
+        "id": 1,
+        "name": "bulbasaur",
+        "views": 409
+    },
+    {
+        "types": [
+            "grass",
+            "poison"
+        ],
+        "stats": [
+            80,
+            82,
+            83,
+            100,
+            100,
+            80
+        ],
+        "_id": "5da9a4a6722ca1d0788ad0a5",
+        "id": 3,
+        "name": "venusaur",
+        "views": 75
+    },
+    {
+        "types": [
+            "fire"
+        ],
+        "stats": [
+            39,
+            52,
+            43,
+            60,
+            50,
+            65
+        ],
+        "_id": "5da9a4a6722ca1d0788ad0a6",
+        "id": 4,
+        "name": "charmander",
+        "views": 67
+    },
+    {
+        "types": [
+            "grass",
+            "poison"
+        ],
+        "stats": [
+            60,
+            62,
+            63,
+            80,
+            80,
+            60
+        ],
+        "_id": "5da9a4a6722ca1d0788ad0a4",
+        "id": 2,
+        "name": "ivysaur",
+        "views": 51
+    },
+    {
+        "types": [
+            "fire"
+        ],
+        "stats": [
+            58,
+            64,
+            58,
+            80,
+            65,
+            80
+        ],
+        "_id": "5da9a4a6722ca1d0788ad0a7",
+        "id": 5,
+        "name": "charmeleon",
+        "views": 46
+    },
+    {
+        "types": [
+            "electric"
+        ],
+        "stats": [
+            35,
+            55,
+            40,
+            50,
+            50,
+            90
+        ],
+        "_id": "5da9a4a6722ca1d0788ad0bb",
+        "id": 25,
+        "name": "pikachu",
+        "views": 24
+    },
+    {
+        "types": [
+            "bug"
+        ],
+        "stats": [
+            45,
+            30,
+            35,
+            20,
+            20,
+            45
+        ],
+        "_id": "5da9a4a6722ca1d0788ad0ac",
+        "id": 10,
+        "name": "caterpie",
+        "views": 23
+    },
+    {
+        "types": [
+            "water"
+        ],
+        "stats": [
+            79,
+            83,
+            100,
+            85,
+            105,
+            78
+        ],
+        "_id": "5da9a4a6722ca1d0788ad0ab",
+        "id": 9,
+        "name": "blastoise",
+        "views": 22
+    },
+    {
+        "types": [
+            "water"
+        ],
+        "stats": [
+            59,
+            63,
+            80,
+            65,
+            80,
+            58
+        ],
+        "_id": "5da9a4a6722ca1d0788ad0aa",
+        "id": 8,
+        "name": "wartortle",
+        "views": 20
+    },
+    {
+        "types": [
+            "poison"
+        ],
+        "stats": [
+            60,
+            95,
+            69,
+            65,
+            79,
+            80
+        ],
+        "_id": "5da9a4a6722ca1d0788ad0ba",
+        "id": 24,
+        "name": "arbok",
+        "views": 20
+    },
+    {
+        "types": [
+            "fire",
+            "flying"
+        ],
+        "stats": [
+            78,
+            84,
+            78,
+            109,
+            85,
+            100
+        ],
+        "_id": "5da9a4a6722ca1d0788ad0a8",
+        "id": 6,
+        "name": "charizard",
+        "views": 19
+    },
+    {
+        "types": [
+            "normal"
+        ],
+        "stats": [
+            30,
+            56,
+            35,
+            25,
+            35,
+            72
+        ],
+        "_id": "5da9a4a6722ca1d0788ad0b5",
+        "id": 19,
+        "name": "rattata",
+        "views": 18
+    },
+    {
+        "types": [
+            "normal",
+            "flying"
+        ],
+        "stats": [
+            65,
+            90,
+            65,
+            61,
+            61,
+            100
+        ],
+        "_id": "5da9a4a6722ca1d0788ad0b8",
+        "id": 22,
+        "name": "fearow",
+        "views": 12
+    },
+    {
+        "types": [
+            "psychic"
+        ],
+        "stats": [
+            106,
+            110,
+            90,
+            154,
+            90,
+            130
+        ],
+        "_id": "5da9a4a6722ca1d0788ad138",
+        "id": 150,
+        "name": "mewtwo",
+        "views": 12
+    },
+    {
+        "types": [
+            "bug",
+            "flying"
+        ],
+        "stats": [
+            60,
+            45,
+            50,
+            90,
+            80,
+            70
+        ],
+        "_id": "5da9a4a6722ca1d0788ad0ae",
+        "id": 12,
+        "name": "butterfree",
+        "views": 11
+    },
+    {
+        "types": [
+            "normal",
+            "flying"
+        ],
+        "stats": [
+            40,
+            60,
+            30,
+            31,
+            31,
+            70
+        ],
+        "_id": "5da9a4a6722ca1d0788ad0b7",
+        "id": 21,
+        "name": "spearow",
+        "views": 11
+    },
+    {
+        "types": [
+            "bug"
+        ],
+        "stats": [
+            50,
+            20,
+            55,
+            25,
+            25,
+            30
+        ],
+        "_id": "5da9a4a6722ca1d0788ad0ad",
+        "id": 11,
+        "name": "metapod",
+        "views": 10
+    },
+    {
+        "types": [
+            "normal",
+            "flying"
+        ],
+        "stats": [
+            83,
+            80,
+            75,
+            70,
+            70,
+            101
+        ],
+        "_id": "5da9a4a6722ca1d0788ad0b4",
+        "id": 18,
+        "name": "pidgeot",
+        "views": 10
+    },
+    {
+        "types": [
+            "dragon"
+        ],
+        "stats": [
+            61,
+            84,
+            65,
+            70,
+            70,
+            70
+        ],
+        "_id": "5da9a4a6722ca1d0788ad136",
+        "id": 148,
+        "name": "dragonair",
+        "views": 10
+    },
+    {
+        "types": [
+            "water"
+        ],
+        "stats": [
+            44,
+            48,
+            65,
+            50,
+            64,
+            43
+        ],
+        "_id": "5da9a4a6722ca1d0788ad0a9",
+        "id": 7,
+        "name": "squirtle",
+        "views": 9
+    },
+    {
+        "types": [
+            "bug",
+            "poison"
+        ],
+        "stats": [
+            45,
+            25,
+            50,
+            25,
+            25,
+            35
+        ],
+        "_id": "5da9a4a6722ca1d0788ad0b0",
+        "id": 14,
+        "name": "kakuna",
+        "views": 9
+    },
+    {
+        "types": [
+            "psychic"
+        ],
+        "stats": [
+            55,
+            50,
+            45,
+            135,
+            95,
+            120
+        ],
+        "_id": "5da9a4a6722ca1d0788ad0e3",
+        "id": 65,
+        "name": "alakazam",
+        "views": 9
+    },
+    {
+        "types": [
+            "normal",
+            "flying"
+        ],
+        "stats": [
+            63,
+            60,
+            55,
+            50,
+            50,
+            71
+        ],
+        "_id": "5da9a4a6722ca1d0788ad0b3",
+        "id": 17,
+        "name": "pidgeotto",
+        "views": 8
+    },
+    {
+        "types": [
+            "fighting"
+        ],
+        "stats": [
+            90,
+            130,
+            80,
+            65,
+            85,
+            55
+        ],
+        "_id": "5da9a4a6722ca1d0788ad0e6",
+        "id": 68,
+        "name": "machamp",
+        "views": 8
+    },
+    {
+        "types": [
+            "psychic"
+        ],
+        "stats": [
+            25,
+            20,
+            15,
+            105,
+            55,
+            90
+        ],
+        "_id": "5da9a4a6722ca1d0788ad0e1",
+        "id": 63,
+        "name": "abra",
+        "views": 7
+    }
+]

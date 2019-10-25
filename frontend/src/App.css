@@ -7,8 +7,13 @@
   position: relative;
 }
 
+.title {
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+
 .searchbarContainer {
-  margin: 15px auto;
+  margin: auto;
 }
 
 .pokemonContentContainer {
@@ -19,5 +24,6 @@
 }
 
 .loadbuttonContainer {
-  margin: 20px auto;
+  height: 70px;
+  margin: auto;
 }

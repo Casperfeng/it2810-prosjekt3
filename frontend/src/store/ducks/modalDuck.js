@@ -28,7 +28,7 @@ export function openModal(
 ) {
   return dispatch =>
     axios
-      .put(`http://localhost:5000/pokemon/${pokemon.id}`)
+      .put(`http://it2810-03.idi.ntnu.no:5000/pokemon/${pokemon.id}`)
       .then(() =>
         dispatch({
           type: OPEN_MODAL,

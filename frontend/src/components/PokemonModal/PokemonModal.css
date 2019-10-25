@@ -89,7 +89,8 @@ header {
 }
 .pokemonTypes {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 .pokemonType {
   height: 30px;
@@ -132,9 +133,6 @@ header {
   .pokemonImage {
     width: 358px;
     height: 358px;
-  }
-  .pokemonTypes {
-    flex-direction: row;
   }
   .pokemonText {
     text-align: center;
