@@ -1,4 +1,4 @@
 {
-  "baseUrl": "http://localhost:5000",
+  "baseUrl": "http://it2810-03.idi.ntnu.no/:5000",
   "appUrl": "http://localhost:3000"
 }
