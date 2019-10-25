@@ -6,7 +6,7 @@ import './ContentSelector.css';
 export default function ContentSelector() {
   const dispatch = useDispatch();
   const showPokemon = useSelector(state => state.showPokemon);
-  const pokemonBtn = () => {
+  function pokemonBtn() {
     return (
       <button
         className={'contentSelector'}
@@ -15,8 +15,8 @@ export default function ContentSelector() {
         Show pokemon
       </button>
     );
-  };
-  const wordcloudBtn = () => {
+  }
+  function wordcloudBtn() {
     return (
       <button
         className={'contentSelector'}
@@ -25,7 +25,7 @@ export default function ContentSelector() {
         Show word cloud
       </button>
     );
-  };
+  }
   return (
     <div className='contentSelectorButtons'>
       {showPokemon ? wordcloudBtn() : pokemonBtn()}
