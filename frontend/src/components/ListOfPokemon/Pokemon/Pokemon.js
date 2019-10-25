@@ -6,40 +6,23 @@ import './Pokemon.css';
 
 export default function Pokemon(props) {
   const dispatch = useDispatch();
+
   function parseUrl(id) {
     return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
   }
 
-  function generateBgColor(types) {
-    return types.length === 2
-      ? colorFromType[types[0]] + ' ' + colorFromType[types[1]]
-      : colorFromType[types[0]];
+  function oneTypeColor(types) {
+    const color = colorFromType[types[0]];
+    return { background: color };
   }
 
-  function hasTwoTypes(value) {
-    return value.includes(' ');
-  }
-
-  function twoTypeColor(value) {
-    if (!hasTwoTypes(value)) {
-      throw Error('Something went wrong');
-    }
+  function twoTypeColor(types) {
+    const color1 = colorFromType[types[0]];
+    const color2 = colorFromType[types[1]];
     return {
-      background: `linear-gradient(90deg, ${value.split(' ')[0]} 50%, ${
-        value.split(' ')[1]
-      } 50%)`
+      background: `linear-gradient(90deg, ${color1} 50%, ${color2} 50%)`
     };
   }
-
-  function oneTypeColor(value) {
-    if (hasTwoTypes(value)) {
-      throw Error('Something went wrong');
-    }
-
-    return { background: value };
-  }
-
-  const bgColoring = generateBgColor(props.types);
 
   return (
     <>
@@ -57,9 +40,9 @@ export default function Pokemon(props) {
         }
         className='pokemonItemContainer'
         style={
-          hasTwoTypes(bgColoring)
-            ? twoTypeColor(bgColoring)
-            : oneTypeColor(bgColoring)
+          props.types.length === 1
+            ? oneTypeColor(props.types)
+            : twoTypeColor(props.types)
         }
       >
         <img
