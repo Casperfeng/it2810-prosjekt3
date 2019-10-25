@@ -1,6 +1,7 @@
 # Pokédex - IT2810-prosjekt3
 
-Pokédex er en nettside der man kan søke, sortere og filtrere etter pokemoner for å finne ut mer om ulike pokemoner. Pokédex har info om alle pokemoner fra generasjon 1 (de første 151 pokemonene). Man kan se på dataen i både listeform og som ordsky. I disse fremvisningene vil kun en liten del av alle pokemonene vises, men brukeren kan laste inn flere ved å trykke på knappen på bunnen av nettsiden. Listeformen og ordskyen er knyttet sammen i og med at de deler dataen som de viser frem. Dette betyr at man kan søke, sortere, filtrere og laste inn flere pokemoner i begge fremvisningene! Dette mener vi er intuitivt, da brukeren bare trenger å forholde seg til ett datasett om gangen. I ordskyen vil de største navnene være de pokemonene med flest views (brukergenererte data). For å se mer info om de ulike pokemonene er det bare å trykke på et listeelement eller navnet til pokemonen i ordskyen.
+Pokédex er en nettside der man kan søke, sortere og filtrere etter pokemoner for å finne ut mer om ulike pokemoner. Pokédex har info om alle pokemoner fra generasjon 1 (de første 151 pokemonene). Man kan se på dataen i både listeform og som ordsky. I disse fremvisningene vil kun en liten del av alle pokemonene vises, men brukeren kan laste inn flere ved å trykke på knappen på bunnen av nettsiden. Listeformen og ordskyen er knyttet sammen i og med at de deler dataen som de viser frem. Dette betyr at man kan søke, sortere, filtrere og laste inn flere pokemoner i begge fremvisningene! Dette mener vi er intuitivt, da brukeren bare trenger å forholde seg til ett datasett om gangen. I ordskyen vil de største navnene være de pokemonene med flest views (brukergenererte data). Views er antall ganger en pokemon har blitt inspisert nøyere (ved å åpne modalen til pokemonen) av brukere. Dette mente vi var en god løsning til persistent brukergenerert data som passet nettsiden vår. For å se mer info om de ulike pokemonene er det bare å trykke på et listeelement eller navnet til pokemonen i ordskyen.
+
 ### PokemonList
 <img src="Forsiden-pokemonlist.png" alt="forsiden pokemonlist" width="600" />
 
@@ -9,8 +10,13 @@ Pokédex er en nettside der man kan søke, sortere og filtrere etter pokemoner f
 <br>
 
 ## Styling
-Vi har valgt å lage CSS fra bunnen av da designet vi bestemte oss for var spesifikt og relativt enkelt å implementere. I tillegg gjorde vi nettsiden responsiv ved bruk av Flexbox og media query. Siden har testet dette på blant annet Samsung Galaxy S5 (mobil) og Surface Book 2 (pc).
-Til designet har vi også tatt inspirasjon fra [pokedex.org](http://www.pokedex.org)
+Vi har valgt å lage CSS fra bunnen av da designet vi bestemte oss for var spesifikt og relativt enkelt å implementere. I tillegg gjorde vi nettsiden responsiv ved bruk av Flexbox og media query. Siden har testet dette på blant annet Samsung Galaxy S5 (mobil) og Surface Book 2 (pc). Til designet har vi også tatt inspirasjon fra [pokedex.org](http://www.pokedex.org).
+
+<img src="responsiv-mobil.png" alt="responsivt design på mobil" width="600" />
+<br>
+
+<img src="responsiv-mobil-modal.png" alt="responsivt design på mobil" width="600" />
+<br>
 
 ## Oppsett av prosjektet
 
@@ -34,6 +40,8 @@ Vi har valgt å ikke bruke snapshot testing. Dette er fordi selv små endringer 
 
 <img src="app.test.png" alt="eksempel på enhetstest" width="600" />
 <p>Eksempel fra App.test.js</p>
+
+Slikt vi har testet (se eksempel over), kan man fint gjøre urelaterte endringer på App.js uten å utløse noen alarmer.  Testene får dermed sjekket om funksjonaliteten er riktig, uten å avfyre mer alarmer enn nødvendig.
 
 #### Hvordan kjøre enhetstestene
 
@@ -164,68 +172,14 @@ Redux ble benyttet for state management i applikasjonen. Gruppen benyttet seg av
 
 Hver duck var ansvarlig for å styre logikken til en state. I prosjektet vårt ble disse benyttet:
 
-#### contentDuck
-
-Styrer om PokemonWordCloud eller PokemonList skal vises til en hver tid.
-
-**Action creators:**
-
-- showPokemon sender beskjed til contentReducer slik at gjør at PokemonList vises.
-- showWordCloud sender beskjed til contentReducer slik at PokemonWoreCloud vises.
-
-<br>
-
-#### modalDuck
-
-Styrer logikken bak åpning og lukking av PokemonModal, samt hvilken pokemon som skal vises. Denne informasjonen er lagret i modalInfo.
-
-**Action creators:**
-
-- openModal tar i mot informasjon om pokemonen og videresender dette til reduceren. Deretter blir modalInfo oppdatert.
-- closeModal sender beskjed videre til reduceren og fører til at modalen lukkes.
-
-<br>
-
-#### pokemonDuck
-
-Styrer logikken til pokemon. Dette innebærer blant annet henting av pokemoner basert på søk, sortering og andre parametere.
-
-**Action creators:**
-
-- fetchPokemon er funksjonen som brukes til å hente pokemon fra backenden. Den har flere mulige parametere for å gjøre søk mer spesifikke. Disse verdiene brukes for å strukturere kall til backend, med unntak av loadMore som kun blir benyttet ved innlasting av mer data (ref. load more-knappen). Dataen blir hentet med axios og sendt videre til enten fetchPokemonSuccess ved suksessfulle kall, eller fetchPokemonFailure når feil inntreffer.
-- fetchPokemonSuccess tar dataen fra fetchPokemon, legger til loadMore og sender den videre til pokemonReducer. Her blir loadMore brukt til å sjekke nye søkeparametere er lagt til eller om det er innlasting av mer data.
-- fetchPokemonFailure inntreffer hvis noe galt skjer i fetchPokemon. Det blir gitt beskjed til pokemonReducer og det blir printet i feilmelding i konsollen.
-- updateView brukes til å inkrementere views med en i frontend uten å måtte gjøre et nytt kall til backend for å oppdatere tallet.
-
-<br>
-
-#### searchDuck
-
-Oppdaterer søkestrengen til en hver tid.
-
-**Action creators:**
-
-- updateSearch sender søkestrengen videre til searchReducer.
-
-<br>
-
-#### sortDuck
-
-Bestemmer sorteringslogikken som brukes til å representere/hente pokemon.
-
-**Action creators:**
-
-- fireAction tar i mot sortingsdata og videresender hva slags sortering som er valgt av brukeren til sortReducer.
-
-<br>
-
-#### typesDuck
-
-Har kontroll på om hvilke pokemon-typer brukeren har valgt å sortere på. Sorterer på ingen ved default.
-
-**Action creators:**
-
-- updateType tar i mot hvilke typer som blir trykket og sender det videre til typeReducer. Her blir type staten oppdatert.
+| Duck | Beskrivelse | Action creators |
+| ------ | ------ | ------ |
+| contentDuck | Styrer om PokemonWordCloud eller PokemonList skal vises til en hver tid. | **showPokemon** sender beskjed til contentReducer slik at gjør at PokemonList vises. **showWordCloud** sender beskjed til contentReducer slik at PokemonWoreCloud vises. 
+| modalDuck | Styrer logikken bak åpning og lukking av PokemonModal, samt hvilken pokemon som skal vises. Denne informasjonen er lagret i modalInfo. | **openModal** tar i mot informasjon om pokemonen og videresender dette til reduceren. Deretter blir modalInfo oppdatert. **closeModal** sender beskjed videre til reduceren og fører til at modalen lukkes. |
+| pokemonDuck | Styrer logikken til pokemon. Dette innebærer blant annet henting av pokemoner basert på søk, sortering og andre parametere. | **fetchPokemon** er funksjonen som brukes til å hente pokemon fra backenden. Den har flere mulige parametere for å gjøre søk mer spesifikke. Disse verdiene brukes for å strukturere kall til backend, med unntak av loadMore som kun blir benyttet ved innlasting av mer data (ref. load more-knappen). Dataen blir hentet med axios og sendt videre til enten fetchPokemonSuccess ved suksessfulle kall, eller fetchPokemonFailure når feil inntreffer. **fetchPokemonSuccess** tar dataen fra fetchPokemon, legger til loadMore og sender den videre til pokemonReducer. Her blir loadMore brukt til å sjekke nye søkeparametere er lagt til eller om det er innlasting av mer data. **fetchPokemonFailure** inntreffer hvis noe galt skjer i fetchPokemon. Det blir gitt beskjed til pokemonReducer og det blir printet i feilmelding i konsollen. **updateView** brukes til å inkrementere views med en i frontend uten å måtte gjøre et nytt kall til backend for å oppdatere tallet. |
+| searchDuck | Oppdaterer søkestrengen til en hver tid. | **updateSearch** sender søkestrengen videre til searchReducer. |
+| sortDuck | Bestemmer sorteringslogikken som brukes til å representere/hente pokemon. | **fireAction** tar i mot sortingsdata og videresender hva slags sortering som er valgt av brukeren til sortReducer. |
+| typesDuck | Har kontroll på om hvilke pokemon-typer brukeren har valgt å sortere på. Sorterer på ingen ved default. | **updateType** tar i mot hvilke typer som blir trykket og sender det videre til typeReducer. Her blir type staten oppdatert. |
 
 ## Acknowledgements
 
