@@ -2,16 +2,6 @@ const express = require('express');
 const router = express.Router();
 const Pokemon = require('../models/Pokemon');
 
-// Get a single pokemon by id
-router.get('/:pokemonId', async (req, res) => {
-  try {
-    const pokemon = await Pokemon.findOne({ id: req.params.pokemonId });
-    res.json([pokemon]);
-  } catch (err) {
-    res.json({ message: err });
-  }
-});
-
 // Increment views on a pokemon
 router.put('/:pokemonId', async (req, res) => {
   try {
