@@ -10,9 +10,12 @@ function PokemonWordCloud() {
   const pokemon = useSelector(state => state.pokemon);
   const colorDict = {};
 
+  /**
+   * Åpner modalen til pokemon trykket på
+   */
   function onWordClick() {
     return function(word) {
-      //finner pokemoninformasjon fra ordet som ble trykket og videresender til redux
+      /* Finner pokemoninformasjon fra ordet som ble trykket og videresender til redux */
       const selectedPokemon = pokemon.filter(
         pokemon => pokemon.name === word.text
       )[0];
@@ -30,7 +33,10 @@ function PokemonWordCloud() {
     };
   }
 
-  //itererer gjennom pokemon og legger ord og verdi inn i words-arrayen
+  /**
+   * Genererer ord for hver pokemon hentet, og lager en farge for hver pokemon
+   * Fargen blir generert fra hver pokemon sin types[0] verdi.
+   */
   function getWords() {
     for (let x = 0; x < pokemon.length; x++)
       colorDict[pokemon[x].name] = colorFromType[pokemon[x].types[0]];
