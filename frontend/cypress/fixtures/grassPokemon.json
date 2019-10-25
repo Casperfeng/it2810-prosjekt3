@@ -1,0 +1,253 @@
+[
+    {
+        "types": [
+            "grass",
+            "poison"
+        ],
+        "stats": [
+            45,
+            49,
+            49,
+            65,
+            65,
+            45
+        ],
+        "_id": "5da9a4a6722ca1d0788ad0a3",
+        "id": 1,
+        "name": "bulbasaur",
+        "views": 409
+    },
+    {
+        "types": [
+            "grass",
+            "poison"
+        ],
+        "stats": [
+            60,
+            62,
+            63,
+            80,
+            80,
+            60
+        ],
+        "_id": "5da9a4a6722ca1d0788ad0a4",
+        "id": 2,
+        "name": "ivysaur",
+        "views": 51
+    },
+    {
+        "types": [
+            "grass",
+            "poison"
+        ],
+        "stats": [
+            80,
+            82,
+            83,
+            100,
+            100,
+            80
+        ],
+        "_id": "5da9a4a6722ca1d0788ad0a5",
+        "id": 3,
+        "name": "venusaur",
+        "views": 75
+    },
+    {
+        "types": [
+            "grass",
+            "poison"
+        ],
+        "stats": [
+            45,
+            50,
+            55,
+            75,
+            65,
+            30
+        ],
+        "_id": "5da9a4a6722ca1d0788ad0cd",
+        "id": 43,
+        "name": "oddish",
+        "views": 1
+    },
+    {
+        "types": [
+            "grass",
+            "poison"
+        ],
+        "stats": [
+            60,
+            65,
+            70,
+            85,
+            75,
+            40
+        ],
+        "_id": "5da9a4a6722ca1d0788ad0ce",
+        "id": 44,
+        "name": "gloom",
+        "views": 1
+    },
+    {
+        "types": [
+            "grass",
+            "poison"
+        ],
+        "stats": [
+            75,
+            80,
+            85,
+            110,
+            90,
+            50
+        ],
+        "_id": "5da9a4a6722ca1d0788ad0cf",
+        "id": 45,
+        "name": "vileplume",
+        "views": 1
+    },
+    {
+        "types": [
+            "bug",
+            "grass"
+        ],
+        "stats": [
+            35,
+            70,
+            55,
+            45,
+            55,
+            25
+        ],
+        "_id": "5da9a4a6722ca1d0788ad0d0",
+        "id": 46,
+        "name": "paras",
+        "views": 1
+    },
+    {
+        "types": [
+            "bug",
+            "grass"
+        ],
+        "stats": [
+            60,
+            95,
+            80,
+            60,
+            80,
+            30
+        ],
+        "_id": "5da9a4a6722ca1d0788ad0d1",
+        "id": 47,
+        "name": "parasect",
+        "views": 2
+    },
+    {
+        "types": [
+            "grass",
+            "poison"
+        ],
+        "stats": [
+            50,
+            75,
+            35,
+            70,
+            30,
+            40
+        ],
+        "_id": "5da9a4a6722ca1d0788ad0e7",
+        "id": 69,
+        "name": "bellsprout",
+        "views": 2
+    },
+    {
+        "types": [
+            "grass",
+            "poison"
+        ],
+        "stats": [
+            65,
+            90,
+            50,
+            85,
+            45,
+            55
+        ],
+        "_id": "5da9a4a6722ca1d0788ad0e8",
+        "id": 70,
+        "name": "weepinbell",
+        "views": 2
+    },
+    {
+        "types": [
+            "grass",
+            "poison"
+        ],
+        "stats": [
+            80,
+            105,
+            65,
+            100,
+            70,
+            70
+        ],
+        "_id": "5da9a4a6722ca1d0788ad0e9",
+        "id": 71,
+        "name": "victreebel",
+        "views": 2
+    },
+    {
+        "types": [
+            "grass",
+            "psychic"
+        ],
+        "stats": [
+            60,
+            40,
+            80,
+            60,
+            45,
+            40
+        ],
+        "_id": "5da9a4a6722ca1d0788ad108",
+        "id": 102,
+        "name": "exeggcute",
+        "views": 1
+    },
+    {
+        "types": [
+            "grass",
+            "psychic"
+        ],
+        "stats": [
+            95,
+            95,
+            85,
+            125,
+            75,
+            55
+        ],
+        "_id": "5da9a4a6722ca1d0788ad109",
+        "id": 103,
+        "name": "exeggutor",
+        "views": 2
+    },
+    {
+        "types": [
+            "grass"
+        ],
+        "stats": [
+            65,
+            55,
+            115,
+            100,
+            40,
+            60
+        ],
+        "_id": "5da9a4a6722ca1d0788ad114",
+        "id": 114,
+        "name": "tangela",
+        "views": 1
+    }
+]

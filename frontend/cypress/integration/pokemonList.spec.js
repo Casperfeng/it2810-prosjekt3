@@ -4,7 +4,7 @@ import { pokemon } from '../fixtures/pokemon';
 
 describe('Pokemon list', () => {
   beforeEach(() => {
-    // Go to website
+    // Go to website with known data
     cy.fixture('first25pokemon').as('pokemon');
     cy.server();
     cy.route('GET', '/pokemon/?skip=0&sort=id', '@pokemon').as('getPokemon');
@@ -64,12 +64,14 @@ describe('Pokemon list', () => {
   });
 
   context('Pokemon modal', () => {
-    it('shows modal if a pokemon item is clicked', () => {
+    beforeEach(() => {
       // Avoid actually affecting views in database by using fixture
       cy.fixture('incrementViews').as('putResponse');
       cy.server();
       cy.route('PUT', '/pokemon/1', '@putResponse').as('incViews');
+    });
 
+    it('shows modal if a pokemon item is clicked', () => {
       cy.get('.pokemonItemContainer')
         .first()
         .click();
@@ -80,12 +82,6 @@ describe('Pokemon list', () => {
       const pokemonId = 10;
       const selectedPokemon = pokemon[pokemonId - 1];
       const number = '010';
-
-      // Avoid actually affecting views in database by using fixture
-      cy.fixture('incrementViews').as('putResponse');
-      cy.server();
-      cy.route('PUT', '/pokemon/' + pokemonId, '@putResponse');
-
       cy.get('.pokemonItemContainer')
         .eq(pokemonId - 1)
         .click();
@@ -114,11 +110,6 @@ describe('Pokemon list', () => {
       const selectedPokemon = pokemon[pokemonId - 1];
       const number = '001';
 
-      // Avoid actually affecting views in database by using fixture
-      cy.fixture('incrementViews').as('putResponse');
-      cy.server();
-      cy.route('PUT', '/pokemon/' + pokemonId, '@putResponse');
-
       cy.get('.pokemonItemContainer')
         .eq(pokemonId - 1)
         .click();
@@ -146,11 +137,6 @@ describe('Pokemon list', () => {
       const id = 22;
       const stats = pokemon[id - 1].stats;
 
-      // Avoid actually affecting views in database by using fixture
-      cy.fixture('incrementViews').as('putResponse');
-      cy.server();
-      cy.route('PUT', '/pokemon/' + id, '@putResponse');
-
       const statNames = [
         'HP',
         'Attack',
@@ -177,11 +163,6 @@ describe('Pokemon list', () => {
     });
 
     it('sends PUT request to increment views on click', () => {
-      // Avoid actually affecting views in database by using fixture
-      cy.fixture('incrementViews').as('putResponse');
-      cy.server();
-      cy.route('PUT', '/pokemon/1', '@putResponse').as('incViews');
-
       cy.get('.pokemonItemContainer')
         .first()
         .click();
@@ -189,16 +170,11 @@ describe('Pokemon list', () => {
     });
 
     it('uses correct background colors on types', () => {
-      // Avoid actually affecting views in database by using fixture
-      cy.fixture('incrementViews').as('putResponse');
-      cy.server();
-      cy.route('PUT', '/pokemon/1', '@putResponse');
-
       cy.get('.pokemonItemContainer')
         .first()
         .click();
 
-      // Test on three different pokemon
+      // Test on a pokemon
       cy.get('.pokemonType')
         .eq(0)
         .should('have.css', 'background-color')
@@ -210,16 +186,30 @@ describe('Pokemon list', () => {
     });
 
     it('closes the modal on click of x', () => {
-      // Avoid actually affecting views in database by using fixture
-      cy.fixture('incrementViews').as('putResponse');
-      cy.server();
-      cy.route('PUT', '/pokemon/1', '@putResponse').as('incViews');
-
       cy.get('.pokemonItemContainer')
         .first()
         .click();
       cy.get('.modalCloseButton').click();
       cy.get('.pokemonModal').should('not.be.visible');
+    });
+
+    it('increments views each time pokemon is clicked', () => {
+      // Open modal
+      cy.get('.pokemonItemContainer')
+        .first()
+        .click();
+      cy.wait('@incViews');
+      cy.get('.viewsText').should('have.text', '283');
+
+      // Close modal
+      cy.get('.modalCloseButton').click();
+
+      // Open modal
+      cy.get('.pokemonItemContainer')
+        .first()
+        .click();
+      cy.wait('@incViews');
+      cy.get('.viewsText').should('have.text', '284');
     });
   });
 
