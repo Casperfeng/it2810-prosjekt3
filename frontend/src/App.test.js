@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import App from './App';
-import PokemonList from './components/ListOfPokemon/PokemonList';
+import PokemonList from './components/PokemonList/PokemonList';
 import PokemonModal from './components/PokemonModal/PokemonModal';
 
 jest.mock('react-redux', () => ({
