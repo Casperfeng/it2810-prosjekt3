@@ -7,7 +7,7 @@ Pokédex er en nettside der man kan søke, sortere og filtrere etter pokemoner f
 1. Klon repoet med SSH/HTTP i ønsket lokasjon.
 2. Gå inn i frontend-mappen og skriv `npm install` etterfulgt av `npm start`
 
-For å kjøre lokalt (krever også endring av endepunkter i koden):
+**For å kjøre lokalt (krever også endring av endepunkter i koden):**
 
 3. Lag en `.env` fil i backend-mappen og skriv `DB_CONNECTION=mongodb://pokeuser:caeiel@it2810-03.idi.ntnu.no:27017/pokedb` i filen. Husk å lagre.
 4. Gå inn i backend-mappen og skriv `npm install` etterfulgt av `npm start`
@@ -31,9 +31,9 @@ npm test
 a
 ```
 
-NB! For å kjøre testene på du ha [satt opp prosjektet.](#Oppsett av prosjektet)
-
+<img src="enhets-testing.png" alt="drawing" width="400" height="300"/>
 <br>
+NB! For å kjøre testene på du ha [satt opp prosjektet.](#Oppsett av prosjektet)
 
 ### Automatisert end-to-end testing
 
@@ -68,6 +68,8 @@ npm run cypress
 
 Etter en liten stund vil et vindu åpnes. Trykk på “Run all specs”-knappen for å kjøre alle testene, eller en av spec-filene for å kjøre en spesifikk test.
 
+<img src="ende-til-ende-testing.png" alt="drawing" width="400"/>
+<br>
 NB! For å kjøre testene på du ha [satt opp prosjektet.](#Oppsett av prosjektet)
 
 ## Backend
@@ -179,7 +181,7 @@ Styrer logikken til pokemon. Dette innebærer blant annet henting av pokemoner b
 
 - fetchPokemon er funksjonen som brukes til å hente pokemon fra backenden. Den har flere mulige parametere for å gjøre søk mer spesifikke. Disse verdiene brukes for å strukturere kall til backend, med unntak av loadMore som kun blir benyttet ved innlasting av mer data (ref. load more-knappen). Dataen blir hentet med axios og sendt videre til enten fetchPokemonSuccess ved suksessfulle kall, eller fetchPokemonFailure når feil inntreffer.
 - fetchPokemonSuccess tar dataen fra fetchPokemon, legger til loadMore og sender den videre til pokemonReducer. Her blir loadMore brukt til å sjekke nye søkeparametere er lagt til eller om det er innlasting av mer data.
-- fetchPokemonFailure inntreffer hvis noe galt skjer i fetchPokemon. Det blir gitt beskjed til pokemonReducer og det blir kastet en feil med relevant feilmelding. Ved feil vil siden ikke laste opp da gruppen ikke så noe hensikt i å la brukere besøke siden med manglende funksjonalitet.
+- fetchPokemonFailure inntreffer hvis noe galt skjer i fetchPokemon. Det blir gitt beskjed til pokemonReducer og det blir printet i feilmelding i konsollen.
 - updateView brukes til å inkrementere views med en i frontend uten å måtte gjøre et nytt kall til backend for å oppdatere tallet.
 
 <br>
