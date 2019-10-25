@@ -1,6 +1,14 @@
 # Pokédex - IT2810-prosjekt3
 
+
+
 Pokédex er en nettside der man kan søke, sortere og filtrere etter pokemoner for å finne ut mer om ulike pokemoner. Pokédex har info om alle pokemoner fra generasjon 1 (de første 151 pokemonene). Man kan se på dataen i både listeform og som ordsky. I disse fremvisningene vil kun en liten del av alle pokemonene vises, men brukeren kan laste inn flere ved å trykke på knappen på bunnen av nettsiden. Listeformen og ordskyen er knyttet sammen i og med at de deler dataen som de viser frem. Dette betyr at man kan søke, sortere, filtrere og laste inn flere pokemoner i begge fremvisningene! Dette mener vi er intuitivt, da brukeren bare trenger å forholde seg til ett datasett om gangen. I ordskyen vil de største navnene være de pokemonene med flest views (brukergenererte data). For å se mer info om de ulike pokemonene er det bare å trykke på et listeelement eller navnet til pokemonen i ordskyen.
+### PokemonList
+<img src="Forsiden-pokemonlist.png" alt="forsiden pokemonlist" width="400" />
+
+### PokemonWordCloud
+<img src="Forsiden-wordcloud.png" alt="forsiden wordcloud" width="400" height="300"/>
+<br>
 
 ## Oppsett av prosjektet
 
@@ -31,7 +39,7 @@ npm test
 a
 ```
 
-<img src="enhets-testing.png" alt="drawing" width="400" height="300"/>
+<img src="enhets-testing.png" alt="enhets-tester" width="400" height="300"/>
 <br>
 NB! For å kjøre testene på du ha [satt opp prosjektet.](#Oppsett av prosjektet)
 
@@ -68,7 +76,7 @@ npm run cypress
 
 Etter en liten stund vil et vindu åpnes. Trykk på “Run all specs”-knappen for å kjøre alle testene, eller en av spec-filene for å kjøre en spesifikk test.
 
-<img src="ende-til-ende-testing.png" alt="drawing" width="400"/>
+<img src="ende-til-ende-testing.png" alt="enhets-tester" width="400"/>
 <br>
 NB! For å kjøre testene på du ha [satt opp prosjektet.](#Oppsett av prosjektet)
 
