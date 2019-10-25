@@ -4,6 +4,7 @@ Pokédex er en nettside der man kan søke, sortere og filtrere etter pokemoner f
 ## Oppsett av prosjektet
 
 1. Klon repoet med SSH/HTTP i ønsket lokasjon.
+2. Lag en `.env` fil i backend-mappen og skriv `DB_CONNECTION=mongodb://pokeuser:caeiel@it2810-03.idi.ntnu.no:27017/pokedb` i filen. Husk å lagre.
 2. Gå inn i backend-mappen og skriv `npm install` etterfulgt av `npm start`
 3. Gå inn i frontend-mappen og skriv `npm install` etterfulgt av `npm start`
 
