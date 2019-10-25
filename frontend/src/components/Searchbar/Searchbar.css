@@ -9,6 +9,7 @@
 }
 
 .searchbar input {
+  display: flex;
   border: none;
   border-radius: 30px;
   padding: 10px;
@@ -41,4 +42,14 @@
   display: flex;
   flex-wrap: wrap;
   place-content: center;
+}
+
+@media only screen and (max-width: 600px) {
+  .searchbar {
+    flex-direction: column;
+  }
+
+  .searchbar input {
+    margin: 5px auto;
+  }
 }
