@@ -2,16 +2,6 @@ const express = require('express');
 const router = express.Router();
 const Pokemon = require('../models/Pokemon');
 
-// Get all pokemon
-router.get('/all', async (req, res) => {
-  try {
-    const pokemon = await Pokemon.find();
-    res.json(pokemon);
-  } catch (err) {
-    res.json({ message: err });
-  }
-});
-
 // Get a single pokemon by id
 router.get('/:pokemonId', async (req, res) => {
   try {
@@ -36,11 +26,12 @@ router.put('/:pokemonId', async (req, res) => {
 });
 
 // Get upto 25 pokemon
-// Optionals:
-// skip: skip a given amount of pokemon
-// name: get pokemon with name containing name
-// sort: sort by given field in either ascending or descending order
-// type{something}: get pokemon with given type
+// Query parameters;
+//  skip: skip a given amount of pokemon
+//  name: get pokemon with name containing name
+//  sort: sort by given field in either ascending or descending order
+//  type${x}: get pokemon with given type
+//  limit: set limit to none to get all pokemon. Otherwise the default is 25.
 router.get('/', async (req, res) => {
   try {
     const types = [];
