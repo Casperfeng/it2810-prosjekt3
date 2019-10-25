@@ -18,6 +18,7 @@ export default function pokemonReducer(state = [], action) {
       console.log(
         'Pokemon loading error, check if backend is connected properly'
       );
+      return state;
     case UPDATE_VIEW:
       const incrementView = view => view + 1;
       const newState = state.map(pokemon =>
