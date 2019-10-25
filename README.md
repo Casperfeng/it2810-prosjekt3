@@ -1,14 +1,16 @@
 # Pokédex - IT2810-prosjekt3
 
-
-
 Pokédex er en nettside der man kan søke, sortere og filtrere etter pokemoner for å finne ut mer om ulike pokemoner. Pokédex har info om alle pokemoner fra generasjon 1 (de første 151 pokemonene). Man kan se på dataen i både listeform og som ordsky. I disse fremvisningene vil kun en liten del av alle pokemonene vises, men brukeren kan laste inn flere ved å trykke på knappen på bunnen av nettsiden. Listeformen og ordskyen er knyttet sammen i og med at de deler dataen som de viser frem. Dette betyr at man kan søke, sortere, filtrere og laste inn flere pokemoner i begge fremvisningene! Dette mener vi er intuitivt, da brukeren bare trenger å forholde seg til ett datasett om gangen. I ordskyen vil de største navnene være de pokemonene med flest views (brukergenererte data). For å se mer info om de ulike pokemonene er det bare å trykke på et listeelement eller navnet til pokemonen i ordskyen.
 ### PokemonList
-<img src="Forsiden-pokemonlist.png" alt="forsiden pokemonlist" width="400" />
+<img src="Forsiden-pokemonlist.png" alt="forsiden pokemonlist" width="600" />
 
 ### PokemonWordCloud
-<img src="Forsiden-wordcloud.png" alt="forsiden wordcloud" width="400" height="300"/>
+<img src="Forsiden-wordcloud.png" alt="forsiden wordcloud" width="600" />
 <br>
+
+## Styling
+Vi har valgt å lage CSS fra bunnen av da designet vi bestemte oss for var spesifikt og relativt enkelt å implementere. I tillegg gjorde vi nettsiden responsiv ved bruk av Flexbox og media query. Siden har testet dette på blant annet Samsung Galaxy S5 (mobil) og Surface Book 2 (pc).
+Til designet har vi også tatt inspirasjon fra [pokedex.org](http://www.pokedex.org)
 
 ## Oppsett av prosjektet
 
@@ -30,6 +32,9 @@ Vi brukte Jest og Enzyme til systematisk enhetstesting. Alle funksjonelle kompon
 
 Vi har valgt å ikke bruke snapshot testing. Dette er fordi selv små endringer til nettsiden sin utseende kan fort forårsake at en snapshot feiler. Dette gjør at snapshotting gir mange falske alarmer, som gjør at snapshottingen mister mye av sin relevanse.
 
+<img src="app.test.png" alt="eksempel på enhetstest" width="600" />
+<p>Eksempel fra App.test.js</p>
+
 #### Hvordan kjøre enhetstestene
 
 Start alle testene.
@@ -39,7 +44,7 @@ npm test
 a
 ```
 
-<img src="enhets-testing.png" alt="enhets-tester" width="400" height="300"/>
+<img src="enhets-testing.png" alt="enhets-tester" width="600" />
 <br>
 NB! For å kjøre testene på du ha [satt opp prosjektet.](#Oppsett av prosjektet)
 
@@ -76,7 +81,7 @@ npm run cypress
 
 Etter en liten stund vil et vindu åpnes. Trykk på “Run all specs”-knappen for å kjøre alle testene, eller en av spec-filene for å kjøre en spesifikk test.
 
-<img src="ende-til-ende-testing.png" alt="enhets-tester" width="400"/>
+<img src="ende-til-ende-testing.png" alt="enhets-tester" width="600"/>
 <br>
 NB! For å kjøre testene på du ha [satt opp prosjektet.](#Oppsett av prosjektet)
 
