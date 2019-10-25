@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import PokemonList from './components/ListOfPokemon/PokemonList';
+import PokemonList from './components/PokemonList/PokemonList';
 import PokemonModal from './components/PokemonModal/PokemonModal';
 import PokemonWordCloud from './components/PokemonWordCloud/PokemonWordCloud';
 import Searchbar from './components/Searchbar/Searchbar';
